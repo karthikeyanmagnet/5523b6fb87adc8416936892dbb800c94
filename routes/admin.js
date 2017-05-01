@@ -2,39 +2,52 @@ function start(req, res, next) {
     path = "/admin" + req.path;
     ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     agent = useragent.parse(req.headers['user-agent']);
-    os=agent.os.toString(); // 'Mac OSX 10.8.1' 
-    meta={
-            "user_ip": ip,
-            "user_os": os,
-            "location": {
-                "lat": "1",
-                "lon": "1",
-                "location_name": "cbe"
-            }
-        };
+    os = agent.os.toString(); // 'Mac OSX 10.8.1' 
+    meta = {
+        "user_ip": ip,
+        "user_os": os,
+        "location": {
+            "lat": "1",
+            "lon": "1",
+            "location_name": "cbe"
+        }
+    };
 
     next();
 }
 
 
 router.get('/', start, function (req, res, next) {
-
-
-
-        res.render('admin/login', "", function (err, doc) {
-            res.send(doc);
-            console.log(err, "--err--");
-
-
-        });
-    
-
+    res.render('admin/login', "", function (err, doc) {
+        res.send(doc);
+        console.log(err, "--err--");
+    });
 });
 
+router.post('/adminlogin', function (req, res, next) {
+    
+    var jsonData = {
+        "email": req.body.email,
+        "password": req.body.password
+    } 
+    var jsonData = JSON.stringify(jsonData);  
+    var options = {
+        url: apiUrl + 'adminLogin',
+        method: 'POST',
+        headers: {
+            'Authorization': authorization,
+        },
+        form: {jsonData: jsonData},
+        json: true
+    };
+ 
+    request(options,function(err, apiRes, body){
+
+       res.json(body.data);
+    });
+});
 
 router.get('/dashboard', start, function (req, res, next) {
-
-
 
     var options = {
         url: apiUrl + 'get_common_count/',
@@ -45,24 +58,16 @@ router.get('/dashboard', start, function (req, res, next) {
     };
 
     request(options, function (err, apiRes, body) {
-        console.log(body, "body----------------------");
         var jsonData = JSON.parse(body).data;
-
         res.render('admin/index', jsonData, function (err, doc) {
             res.send(doc);
-            console.log(err, "--err--");
-
-
         });
     });
-
 });
 
 
 
 router.get('/users', start, function (req, res, next) {
-
-
 
     var options = {
         url: apiUrl + 'user/0/100',
@@ -279,10 +284,10 @@ router.get('/users/:id', start, function (req, res, next) {
 
 router.get('/coinUpdate', start, function (req, res, next) {
 
-    var ch=0;
-     if(typeof req.query.ch!='undefined') {
-     ch=req.query.ch;     
-     }
+    var ch = 0;
+    if (typeof req.query.ch != 'undefined') {
+        ch = req.query.ch;
+    }
 
 
 
@@ -300,7 +305,7 @@ router.get('/coinUpdate', start, function (req, res, next) {
     request(options, function (err, apiRes, body) {
         console.log(body, "call");
         var jsonData = body.data;
-        jsonData.ch=ch;
+        jsonData.ch = ch;
         res.render('admin/coinUpdate', jsonData, function (err, doc) {
             res.send(doc);
             console.log(err, "--err--");
@@ -320,10 +325,10 @@ router.get('/coinUpdate', start, function (req, res, next) {
 });
 
 
-router.post('/coinUpdate',start, function (req, res, next) {
+router.post('/coinUpdate', start, function (req, res, next) {
 
     console.log(req.body);
-    
+
 
     var jsonData = {
         "per_dollar_no_ofcoins": parseInt(req.body.per_dollar_no_ofcoins).toFixed(2),
@@ -332,8 +337,8 @@ router.post('/coinUpdate',start, function (req, res, next) {
         "per_coin_sell_dollar": parseInt(req.body.per_coin_sell_dollar).toFixed(2),
         "currency_type": req.body.currency_type,
         "meta": meta
-        };
-   
+    };
+
 
 
     console.log(jsonData);
@@ -353,7 +358,7 @@ router.post('/coinUpdate',start, function (req, res, next) {
     };
 
     request(options, function (err, apiRes, body) {
-console.log(body.data);
+        console.log(body.data);
         res.redirect('/admin/coinUpdate?ch=1');
 
 
