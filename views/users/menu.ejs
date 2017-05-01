@@ -63,19 +63,22 @@
                     </div>
                 </div>
             </li>
+            
+            <% if(typeof sess.product_name!=undefined) { %>
             <li>
 
                 <div class="row user-details" >   
 
-                    <div class="pull-left">
-                        <b> Gold Plan </b> <br>
-                        Plan A
+                    <div class="pull-left" style=" width: 100px ">
+                        <b>  <%- sess.product_name  %> </b> <br>
+                         <%- sess.product_description  %>
                     </div>
                     <div class="pull-left">
                         <img src="/images/user-plan.png"  class="user-plan" />
                     </div>
                 </div>
             </li>
+            <% } %>
             <li <% if(path=="/users/") { %> class="active" <% } %>  >
                 <a href="/users/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
@@ -94,7 +97,7 @@
              <li <% if(path=="/users/withdrawn") { %> class="active" <% } %>  >
                 <a href="/users/withdrawn"><i class="glyphicon glyphicon-circle-arrow-down"></i> Sell </a>
             </li>           
-            <li <% if(path=="/users/tranhistory" || path="/users/sellhistory") { %> class="active" <% } %>  >
+            <li <% if(path=="/users/tranhistory" || path=="/users/sellhistory") { %> class="active" <% } %>  >
                 <a href="/users/tranhistory"><i class="glyphicon glyphicon-globe"></i> Transaction</a>
             </li>
             <li <% if(path=="/users/bouns") { %> class="active" <% } %>  >

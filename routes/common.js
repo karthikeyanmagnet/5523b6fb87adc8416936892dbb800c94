@@ -57,6 +57,8 @@ console.log(userId,"userId------");
             
             
         balance = body.data.data.total_coins_buyed;
+         sell_rate = body.data.data.sell_rate;
+          buy_rate = body.data.data.buy_rate;
         next();
             
         });

@@ -25,7 +25,7 @@ type=req.query.type;
     var jsonData = JSON.stringify({"product_type":type,"start":0,"limit":100});
    
     var options = {
-        url: apiUrl + 'getallproduct',
+        url: apiUrl + 'getallproduct_with_auth',
         method: 'POST',
         headers: {
             'Authorization': authorization,

@@ -1,109 +1,122 @@
+<% include ../header %>
 
-<% include ../header %>    
+    <body>
 
-<body>
+        <div id="wrapper">
 
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <% include ../menu %>            
-
-
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
+            <!-- Navigation -->
+            <% include ../menu %>
 
 
+                <div id="page-wrapper">
 
-                <div class="row top-heading">
-                    <div class="col-lg-12">
-                        <h3 class="page-header">
-                            SELL  <small>  </small>
-                        </h3>
+                    <div class="container-fluid">
 
 
-              <!--          <ol class="breadcrumb">
+
+                        <div class="row top-heading">
+                            <div class="col-lg-12">
+                                <h3 class="page-header">
+                                    SELL <small>  </small>
+                                </h3>
+
+
+                                <!--          <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> Sell
                             </li>
                         </ol>  -->
 
-                    </div>
-
-
-
-                </div>
-                <br>
-                <div class="row ">
-
-
-                    <div class="col-lg-12 " id="message">
-
-                    </div>
-
-
-                    <div class="col-lg-12 panel" >
-                        <div class="col-lg-9 " >
-                        <h3> Sell Your Coin  </h3>
-                        <form  id="cform">
-                            <!-- /.row -->
-                            <table class="table table-bordered table-hover table-striped ">
-
-                                <tbody>
-
-
-
-                                    <tr>
-                                        <td> No Of Coin Transferred </td>
-                                        <td> <input type="text" class="form-control" name="no_of_cointransferred"  id="no_of_cointransferred"  >
-
-                                        </td>
-                                        <td> Tax </td>
-                                        <td> 
-                                            <input type="text" class="form-control"  value="0" disabled="" id="tax"  >
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td> Amount in $  </td>
-                                        <td> <input type="text" class="form-control"  value="" id="amount" name="amount" ></td>
-                                        <td> Fee </td>
-                                        <td> <input type="text" class="form-control"  value="0" disabled="" id="fee"  ></td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td> Total  </td>
-                                        <td> <input type="text" class="form-control"  value="" id="total" name="total"  ></td>
-                                        <td> Transation Password </td>
-                                        <td> <input type="password" class="form-control"  value="" name="tran_pass" id="tran_pass"  ></td>
-                                    </tr>
-
-
-
-                                    <tr>
-                                        <td>   </td>
-                                        <td> <button type="submit" class="btn btn-primary"> Withdraw   </button> </td>
-
-
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </form>
-                    </div>
-                       <div class="col-lg-3">
-                        <div class="panel row">
-                            <div class="col-lg-12">
-                                <h3> Balance </h3>
-                                
-                                <hr>
                             </div>
-                            
-                            <div class="col-lg-12 text-right">
-                                <span> Balance <span> <br> 
-                                        <b> $ <%= balance %> </b>
+
+
+
+                        </div>
+                        <br>
+                        <div class="row ">
+
+
+                            <div class="col-lg-12 " id="message">
+
+                            </div>
+
+
+                            <div class="row">
+
+
+                                <div class="col-lg-12">
+                                    <div class="col-lg-4 pull-right">
+                                        <button class="btn btn-success pull-right">  Sell Rate = $ <%=  sell_rate  %> </button> 
+                                       <button class="btn btn-warning pull-right" style="margin: 0 10px 0 0;"> Buy Rate = $ <%=  buy_rate  %> </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12 panel">
+                                <div class="col-lg-9 ">
+                                    <h3> Sell Your Coin </h3>
+                                    <form id="cform">
+                                        <!-- /.row -->
+                                        <table class="table table-bordered table-hover table-striped ">
+
+                                            <tbody>
+
+
+
+                                                <tr>
+                                                    <td> No Of Coin Transferred </td>
+                                                    <td> <input type="text" class="form-control" name="no_of_cointransferred"
+                                                            id="no_of_cointransferred">
+
+                                                    </td>
+                                                    <td> Tax </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" value="0" disabled="" id="tax">
+                                                    </td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td> Amount in $ </td>
+                                                    <td> <input type="text" class="form-control" value="" id="amount" name="amount"></td>
+                                                    <td> Fee </td>
+                                                    <td> <input type="text" class="form-control" value="0" disabled="" id="fee"></td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td> Total </td>
+                                                    <td> <input type="text" class="form-control" value="" id="total" name="total"></td>
+                                                    <td> Transation Password </td>
+                                                    <td> <input type="password" class="form-control" value="" name="tran_pass"
+                                                            id="tran_pass"></td>
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td> </td>
+                                                    <td> <button type="submit" class="btn btn-primary"> Withdraw   </button> </td>
+
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="panel row">
+                                        <div class="col-lg-12">
+                                            <h3> Balance </h3>
+
+                                            <hr>
+                                        </div>
+
+                                        <div class="col-lg-12 text-right">
+                                            <span> Balance <span> <br> 
+                                        <b><%= balance %> Protos </b>
                                 <hr>
                             </div>
        <!--                      <hr>
@@ -157,8 +170,8 @@
             var no_of_cointransferred = $("#no_of_cointransferred").val();
             var tax = $("#tax").val();
             var fee = $("#fee").val();
-                    var perCoinAmount =" <%- data[0].coin_current_base_price %>" ;
-                    var amount = no_of_cointransferred * perCoinAmount;
+            var perCoinAmount = " <%- sell_rate %>";
+            var amount = no_of_cointransferred * perCoinAmount;
             $("#amount").val(amount);
             var total = no_of_cointransferred * perCoinAmount + parseInt(fee) + parseInt(tax);
             $("#total").val(total);
@@ -173,8 +186,8 @@
             var amount = $("#amount").val();
             var tax = $("#tax").val();
             var fee = $("#fee").val();
-                    var perCoinAmount =" <%- data[0].coin_current_base_price %>";
-                    var amount = amount / perCoinAmount;
+            var perCoinAmount = " <%- sell_rate %>";
+            var amount = amount / perCoinAmount;
             $("#no_of_cointransferred").val(amount);
             var total = no_of_cointransferred * perCoinAmount - parseInt(fee) - parseInt(tax);
             $("#total").val(total);
@@ -190,11 +203,11 @@
                     required: true,
                     number: true
                 },
-                 name: {
+                name: {
                     required: true,
                     number: true
                 },
-                 total: {
+                total: {
                     required: true,
                     number: true
                 },
@@ -216,7 +229,7 @@
                     "no_of_cointransferred": no_of_cointransferred,
                     "transaction_type": "2",
                     "transaction_status": "1",
-                    "tran_pass":tran_pass
+                    "tran_pass": tran_pass
                 }
 
 
@@ -224,23 +237,23 @@
                 //    var jsonData = JSON.stringify(jsonData);
 
                 $.ajax
-                        ({
-                            type: "POST",
-                            url: "/users/withdrawn",
-                            dataType: 'json',
-                            async: false,
-                            headers: {
-                                "Authorization": "<%- authorization %>",
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            data: jsonData,
-                            success: function (data) {
-//                                alert('Thanks for your comment!');
+                    ({
+                        type: "POST",
+                        url: "/users/withdrawn",
+                        dataType: 'json',
+                        async: false,
+                        headers: {
+                            "Authorization": "<%- authorization %>",
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        data: jsonData,
+                        success: function (data) {
+                            //                                alert('Thanks for your comment!');
 
-                                if (data.data.code == 200) {
-                                    $("[name='to_user_id']").val("");
-                                    $("[name='no_of_cointransferred']").val("");
-                                    $("#message").html('<div class="alert alert-success">\n\
+                            if (data.data.code == 200) {
+                                $("[name='to_user_id']").val("");
+                                $("[name='no_of_cointransferred']").val("");
+                                $("#message").html('<div class="alert alert-success">\n\
 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>\n\
 <i class="fa fa-info-circle"></i> \n\
  <strong id="message"> ' + JSON.stringify(data.data.message) + ' </strong></div>');
@@ -248,18 +261,18 @@
 
 
 
-                                } else {
-                                    $("#message").html('<div class="alert alert-danger">\n\
+                            } else {
+                                $("#message").html('<div class="alert alert-danger">\n\
 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>\n\
 <i class="fa fa-info-circle"></i> \n\
  <strong id="message"> ' + JSON.stringify(data.data.message) + ' </strong></div>');
 
-                                }
-
-
-                                return false;
                             }
-                        });
+
+
+                            return false;
+                        }
+                    });
 
 
 
@@ -269,4 +282,3 @@
         });
     });
 </script>
-
