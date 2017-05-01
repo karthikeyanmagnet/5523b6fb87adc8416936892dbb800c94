@@ -35,19 +35,34 @@ router.get('/', function (req, res, next) {
         method: 'GET',
         json: true
     };
+    
+     var jsonData = JSON.stringify({ "product_type": 4, "start": 0, "limit": 10 });
+    var options1 = {
+        url: apiUrl + 'getAllProducts_without_auth',
+        method: 'POST',
+         form: { jsonData: jsonData },
+         json:true
+        
+        
+    };
 
     request(options, function (err, apiRes, body) {
+    
         
-        console.log(body,"body");
+       request(options1, function (err1, apiRes1, body1) { 
+        
+        console.log(body1,"body");
         var jsonData={};
         jsonData.currencylayer=body;
+       jsonData.productdetails=body1.data.data.productdetails;
+        console.log(body1,"body1");
         res.render('index', jsonData, function (err, doc) {
             console.log(err, "err");
             res.send(doc);
 
         });
         
-        
+        });
     });
 
 
