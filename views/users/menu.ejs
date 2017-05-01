@@ -85,7 +85,7 @@
             <li <% if(path=="/users/network") { %> class="active" <% } %>  >
                 <a href="/users/network"><i class="glyphicon glyphicon-signal"></i> My Network</a>
             </li>
-            <li <% if(path=="/users/myaccount") { %> class="active" <% } %>  >
+            <li <% if(path=="/users/myaccount" || path=="/users/coinsafe") { %> class="active" <% } %>  >
                 <a href="/users/myaccount"><i class="glyphicon glyphicon-briefcase"></i> My Account</a>
             </li>
               <li <% if(path=="/users/shop") { %> class="active" <% } %>  >
@@ -94,7 +94,7 @@
              <li <% if(path=="/users/withdrawn") { %> class="active" <% } %>  >
                 <a href="/users/withdrawn"><i class="glyphicon glyphicon-circle-arrow-down"></i> Sell </a>
             </li>           
-            <li <% if(path=="/users/tranhistory") { %> class="active" <% } %>  >
+            <li <% if(path=="/users/tranhistory" || path="/users/sellhistory") { %> class="active" <% } %>  >
                 <a href="/users/tranhistory"><i class="glyphicon glyphicon-globe"></i> Transaction</a>
             </li>
             <li <% if(path=="/users/bouns") { %> class="active" <% } %>  >
