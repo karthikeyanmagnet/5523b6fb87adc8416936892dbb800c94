@@ -1,0 +1,113 @@
+
+         
+        <% include header %>
+        
+            
+        <section id="content">
+            
+            
+            <div class="container" >
+            
+            <div class="row ">
+                <div class="col-sm-4"></div>
+                            
+                                <div class="travelo-box col-sm-4">
+                                   <form class="contact-form" id="cform" >
+                                       <h4 class="box-title"> Login </h4>
+                                       <h4 class="box-title" id="message" style="color: #DD4B39">  </h4>
+                                    <div class="row form-group">
+                                            <div class="col-xs-12">
+                                            <label>Email</label>
+                                            <input type="text" name="email" class="input-text full-width">
+                                        </div>
+                                        </div>
+                                    <div class="row form-group">
+                                            <div class="col-xs-12">
+                                            <label>Password</label>
+                                            <input type="password" name="password" class="input-text full-width">
+                                        </div>
+                                        </div>
+                                       <button type="submit" class="btn-large full-width">Login</button>
+                                   </form>
+                                </div>
+                           
+                
+                            
+                        </div>
+            </div>
+        </section>
+
+
+        
+        
+        <% include footer %>
+        
+        
+        
+        
+<script>
+    tjq(document).ready(function () {
+        tjq("#cform").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email:true
+                },
+                password: {
+                    required: true,
+                    
+                }
+
+            },
+            submitHandler: function () {
+
+            var email=tjq("[name='email']").val();
+            var password=tjq("[name='password']").val();
+            
+                var jsonData ={"email":email,"password":password,"type":1};
+
+
+                 
+
+                tjq.ajax
+                        ({
+                            type: "POST",
+                            url: "/login",
+                            dataType: 'json',
+                            async: false,
+                            headers: {
+                                "Authorization": "<%- authorization %>",
+                                 'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            data: jsonData,
+                            success: function (data) {
+                                
+console.log(data);
+                                if (data.data.code == 200) {
+                                   
+
+                                window.location.assign("/users/")
+
+
+                                } else {
+                                   tjq("#message").text(JSON.stringify(data.data.message));
+
+                                }
+
+
+                                return false;
+                            }
+                        });
+
+
+
+
+
+            }
+        });
+    });
+</script>
+
+
+   
+

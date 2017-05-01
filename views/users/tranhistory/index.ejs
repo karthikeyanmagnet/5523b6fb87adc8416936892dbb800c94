@@ -1,0 +1,265 @@
+
+<% include ../header %>    
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<style>
+.tabheader-font{font-size:18px !important}
+</style>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <% include ../menu %>            
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+
+
+                <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h3 class="page-header">
+                           TRANSACTION  <small>  </small>
+                        </h1>
+
+
+              <!--          <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> History
+                            </li>
+                        </ol> -->
+                        <hr>
+                        <ol class="breadcrumb user-tab">
+                            <li class="tabheader-font">
+                                <a href="/users/tranhistory">
+                               TRANSFER HISTORY
+                                </a>
+                            </li>
+                            
+                             <li class="tabheader-font">
+                                <a href="/users/sellhistory">
+                               SELL HISTORY
+                                </a>
+                            </li>
+                            
+                            
+                        </ol>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <br>
+                        <div class="panel col-lg-12"> 
+                            <h3> Transfer History</h3>    
+                            <div class="row"> 
+                                <form id="filter">
+                                <div class="col-lg-2">
+                                    <input type="" name="from_date" class="form-control" id="from_date"  placeholder="From Date" />
+                                </div>
+                                <div class="col-lg-2">
+                                    <input type=""  class="form-control"  name="to_date" placeholder="From Date" id="to_date"  /> 
+                                </div>
+                                <div class="col-lg-2">
+                                    <button class="btn btn-info" type="submit">  Filter   </button>   
+                                   
+                                </div>
+                                </form>
+                            </div>
+                            <br>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="row">
+                    <br>
+                    <div class="col-lg-12">
+                    <div class="col-lg-9">
+                        <table class="table table-bordered table-hover table-striped panel">
+                            <thead >
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th> No Of Coins </th>
+                                    <th> Status </th>
+                                    
+                                    <th> To User </th>
+                                </tr>
+                            </thead>
+                            <tbody id="replaceData">
+                               <% include page %>         
+                               
+                            </tbody>
+                           
+                        </table>
+                         <div class="col-lg-12 inviewCont">
+                       
+                    </div>
+
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel row">
+                            <div class="col-lg-12">
+                                <h3> Balance </h3>
+                                
+                                <hr>
+                            </div>
+                            
+                            <div class="col-lg-12 text-right">
+                                <span> Balance <span> <br> 
+                                       <b> $ <%= balance %> </b>
+                                <hr>
+                            </div>
+                            <hr>
+<!--                              <div class="col-lg-12 text-right">
+                                <span> Current Weekly Pay In <span> <br> 
+                                        <b style="color: #0a8461"> 6.60 EUR </b>
+                                <hr>
+                            </div>
+                            <hr>
+                              <div class="col-lg-12 text-right">
+                                <span> Current Weekly Pay Out <span> <br> 
+                                        <b style="color: #ef4036"> 6.60 EUR </b>
+                                
+                            </div>-->
+                            <hr>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+                <!-- /.row -->
+
+                <!-- /.row -->
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <% include ../footer %> 
+
+</body>
+
+</html>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/javascripts/jquery.inview.min.js" > </script>
+<script>
+    $(document).ready(function () {
+        $("#from_date").datepicker();
+        $("#to_date").datepicker();
+        
+        
+        var start=10;
+        
+        
+        function filter(start,limit,from_date,to_date,method){
+        
+          var jsonData = {
+                    "start_date":from_date,
+                    "end_date":to_date,
+                    "start":start,
+                    "limit":limit,
+                    "transaction_status":4,
+                    "transaction_type":1
+                };
+
+
+           
+
+                $.ajax
+                        ({
+                            type: "POST",
+                            url: "/users/tranhistory/filter",
+                            dataType: 'html',
+                            async: false,
+                            headers: {
+                                "Authorization": "<%- authorization %>",
+                                 'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            data: jsonData,
+                            success: function (data) {
+
+                            if(method=="replace"){
+                               $("#replaceData").html(data); 
+                               start=2;
+                           }
+                           
+                         if(method=="prepend"){
+                               $("#replaceData").prepend(data); 
+                               start=2+start;
+                           }
+
+
+                                return false;
+                            }
+                        });
+        
+        
+    }
+        
+        
+        $("#filter").validate({
+            rules: {
+                from_date: {
+                    required: true,
+                },
+                to_date: {
+                    required: true,
+                }
+
+            },
+            submitHandler: function () {
+ 
+            var from_date=$("[name='from_date']").val();
+            var to_date=$("[name='to_date']").val();
+            
+              
+                filter("0",10,from_date,to_date,"replace")
+
+
+
+
+            }
+        });
+        
+        
+        
+          $('.inviewCont').on('inview', function(event, isInView) {
+             
+         console.log(start,10,0,0,"prepend");
+          var from_date=$("[name='from_date']").val();
+          var to_date=$("[name='to_date']").val();
+          if(from_date=="") { from_date=0 };
+          if(to_date=="") { to_date=0 };
+          filter(start,10,0,0,"prepend")
+         
+         
+     });
+        
+        
+        
+        
+    });
+</script>

@@ -1,0 +1,115 @@
+
+<% include ../header %>    
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+<% include ../menu %>            
+        
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                
+                
+                 <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Package  <small> Statistics Overview </small>
+                        </h1>
+
+
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Package Update
+                            </li>
+                        </ol>
+
+                    </div>
+
+
+
+                </div>
+              
+
+                <div class="row">
+                    
+                    <% if(ch==1) { %>
+                    <div class="col-lg-12 ">
+                    <div class="alert alert-success alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <i class="fa fa-info-circle"></i>  <strong>Update Successfully</strong> 
+                        </div>
+                    </div>
+                    <% } %>
+                    <div class="col-lg-12 panel">
+                        <div class="col-lg-6 ">
+                     <div class="table-responsive">
+                         <form method="post" action="/admin/products/update" id="update">
+                             <input type="hidden" class="form-control" name="product_id" value="<%- data._id %>"  >
+                                   <!-- Navigation -->
+<% buttonName='Update' %> 
+<% include form %> 
+                         </form>
+                        </div>
+                        </div>
+                         </div>
+                    <div class="col-lg-6 ">
+                        
+                    </div>
+                    
+                </div>
+                <!-- /.row -->
+
+               
+                <!-- /.row -->
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <% include ../footer %> 
+
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function (){
+    $("#update").validate({
+  rules: {
+    product_title: {
+      required: true,
+    },
+    product_description: {
+      required: true,
+    },
+    product_type: {
+      required: true,
+    },
+    product_status:{
+      required: true,
+      number:true
+   }
+   
+  },
+  submitHandler: function() { 
+     
+      return true;
+
+    
+    }
+});
+});
+</script>

@@ -1,0 +1,132 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border-color: #a7b3bc;">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand user-panel-logo" href="/users"> <img src="/images/logo.png" /> </a>
+    </div>
+    <!-- Top Menu Items -->
+    <ul class="nav navbar-right top-nav">
+<!--        <li class="dropdown">
+            <a href="#" ><i class="glyphicon glyphicon-envelope fa-2x"></i> </a>
+
+        </li>-->
+        <li class="dropdown">
+            <a href="/users/shop/cart" ><i class="glyphicon glyphicon-shopping-cart fa-2x"></i> </a>
+
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle fa-2x" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="/users/profile"><i class="fa fa-fw fa-user"></i> Profile</a>
+                </li>
+
+                <li>
+                    <a href="/users/changepass"><i class="fa fa-fw fa-user"></i> Change Password</a>
+                </li>
+
+                <li class="divider"></li>
+                <li>
+                    <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse topbatch">
+        <ul class="nav navbar-nav side-nav menu">
+            <li>
+
+                <div class="row user-details" >   
+                    <div class="pull-left">
+                        <% if(typeof userDetails.data[0].image_url1!="undefined") { %>
+                        <% if(userDetails.data[0].image_url1!="") { %>
+                        <img src="<%- userDetails.data[0].image_url1 %>"  class="user-logo" />
+                        <% } else { %>
+                        <img src="/images/kyc1.jpg"  class="user-logo" />
+                        <% } } else { %>
+                        
+                        <img src="/images/kyc1.jpg"  class="user-logo" />
+                       <% } %>
+                    </div>
+                    <div class="pull-left">
+                        
+                        
+                        <b> <%- sess.first_name %> </b> <br>
+                        <%- sess.city %>
+                    </div>
+                </div>
+            </li>
+            <li>
+
+                <div class="row user-details" >   
+
+                    <div class="pull-left">
+                        <b> Gold Plan </b> <br>
+                        Plan A
+                    </div>
+                    <div class="pull-left">
+                        <img src="/images/user-plan.png"  class="user-plan" />
+                    </div>
+                </div>
+            </li>
+            <li <% if(path=="/users/") { %> class="active" <% } %>  >
+                <a href="/users/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+            </li>
+            <li <% if(path=="/users/profile") { %> class="active" <% } %>  >
+                <a href="/users/profile"><i class="glyphicon glyphicon-user"></i> My Profile</a>
+            </li>
+            <li <% if(path=="/users/network") { %> class="active" <% } %>  >
+                <a href="/users/network"><i class="glyphicon glyphicon-signal"></i> My Network</a>
+            </li>
+            <li <% if(path=="/users/myaccount") { %> class="active" <% } %>  >
+                <a href="/users/myaccount"><i class="glyphicon glyphicon-briefcase"></i> My Account</a>
+            </li>
+              <li <% if(path=="/users/shop") { %> class="active" <% } %>  >
+                <a href="/users/shop?type=1"><i class="glyphicon glyphicon-shopping-cart"></i> Shop </a>
+            </li>
+             <li <% if(path=="/users/withdrawn") { %> class="active" <% } %>  >
+                <a href="/users/withdrawn"><i class="glyphicon glyphicon-circle-arrow-down"></i> Sell </a>
+            </li>           
+            <li <% if(path=="/users/tranhistory") { %> class="active" <% } %>  >
+                <a href="/users/tranhistory"><i class="glyphicon glyphicon-globe"></i> Transaction</a>
+            </li>
+            <li <% if(path=="/users/bouns") { %> class="active" <% } %>  >
+                <a href="/users/bouns"><i class="glyphicon glyphicon-briefcase"></i> Bouns </a>
+            </li>
+            <li <% if(path=="/users/sell") { %> class="active" <% } %>  >
+                <a href="/users/sell"><i class="glyphicon glyphicon-tag"></i> Transfer </a>
+            </li>           
+            <li <% if(path=="/users/escrow") { %> class="active" <% } %>  >
+                <a href="/users/escrow"><i class="glyphicon glyphicon-briefcase"></i> Escrow  </a>
+            </li>
+            <li <% if(path=="/users/cryptovalue") { %> class="active" <% } %>  >
+                <a href="/users/cryptovalue"><i class="glyphicon glyphicon-yen"></i> CryptoValue Currency </a>
+            </li>
+            
+            <li <% if(path=="/users/tutorials") { %> class="active" <% } %>  >
+                <a href="/users/tutorials"><i class="glyphicon glyphicon-object-align-left"></i> Tutorials  </a>
+            </li>
+            <li <% if(path=="/users/information") { %> class="active" <% } %>  >
+                <a href="/users/information"><i class="glyphicon glyphicon-leaf"></i> Support </a>
+            </li>
+           
+            
+            
+          
+            
+            
+            
+
+
+
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>

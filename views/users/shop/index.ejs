@@ -1,0 +1,127 @@
+
+<% include ../header %>    
+
+
+<style>
+    
+.shopHeading{color:#056280}    
+.shop-margin{margin: 10px}
+.shop-tabheader-font{font-size:18px !important}
+</style>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+<% include ../menu %>            
+        
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+               
+                
+                   <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h3 class="page-header">
+                            SHOP  <small>  </small>
+                        </h3>
+
+
+                 <!--       <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Shop
+                            </li> 
+                        </ol>  -->
+                        
+                        <hr>
+                        <ol class="breadcrumb user-tab">
+                            <li <% if(type==1) { %>  class="active shop-tabheader-font" <% } %>  class="shop-tabheader-font"  >
+                                <a href="/users/shop?type=1">
+                               PACKAGE
+                                </a>
+                            </li>
+                            
+                            <li <% if(type==2) { %>  class="active shop-tabheader-font" <% } %> class="shop-tabheader-font"  >
+                                <a href="/users/shop?type=2">
+                               ECOMMERCE
+                                </a>
+                            </li>
+                            <li <% if(type==3) { %>  class="active shop-tabheader-font" <% } %> class="shop-tabheader-font"  >
+                                <a href="/users/shop?type=3">
+                               TOKEN
+                                </a>
+                            </li>
+                        </ol>
+
+
+
+                    </div>
+
+
+
+                </div>
+              
+
+                <div class="row">
+                    
+                     <% include page %> 
+                    
+                    <div class="col-lg-12 inviewCont">
+                        
+                    </div>
+                </div>
+                <!-- /.row -->
+
+               
+                <!-- /.row -->
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <% include ../footer %> 
+
+</body>
+
+</html>
+
+<script src="/javascripts/jquery.inview.min.js" > </script>
+<script>
+    
+    var skip=5;
+   $('.inviewCont').on('inview1', function(event, isInView) {
+       
+       $(".inviewCont").hide();
+          $.ajax
+                        ({
+                            type: "GET",
+                            url: "/users/shop/"+skip+"/5",
+                            dataType: 'html',
+                            async: false,
+                            headers: {
+                                "Authorization": "<%- authorization %>",
+                                 'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            success: function (data) {
+                                skip=skip+2;
+ $(".inviewCont").before(data);
+ $(".inviewCont").show();
+                                
+
+
+                            
+                            }
+                        });
+});
+</script>
+

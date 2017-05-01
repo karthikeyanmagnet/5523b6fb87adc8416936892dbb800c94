@@ -1,0 +1,187 @@
+
+
+<% include header %>
+
+
+<article id="content">
+
+    <section class="bannerImg">
+
+        <div class="mainSlider">
+           <div class="">
+                <img src="/website/images/site/slider/slider3.jpg" class="full-box" height="727px" />
+            </div>
+            <div class="">
+                <img src="/website/images/site/slider/slider1.jpg" class="full-box" height="727px" />
+            </div>
+            <div class="">
+                <img src="/website/images/site/slider/slider2.jpg" class="full-box" height="727px" />
+            </div>
+            
+            
+        </div> 
+    </section> 
+    <div class="clearfix"></div>
+    <div class="container" >
+
+        <div class="row ">
+            <h2>
+                Kyc
+            </h2>
+            <p>
+                We request documentation of every stakeholder to prove the identity . Each transfer is genuine and not a ghost transaction or anonymous . We examine all the documents related to  the stake holder before allowing him on the platform . All the documents and identity is confidential and is not shared . A verification procedure is required every time identification information is changed. 
+            </p>
+            <hr>
+            <div>
+                The document list required for joining protocoin is :- 
+            <br>
+1). name <br> <br>
+2). national id card <br><br>
+3). proof of date of birth  <br><br>
+4).driving license <br><br>
+
+or any other valid proof which verifies his or her identity <br><br>
+
+            </div>
+            
+             <h2>
+              Audit 
+            </h2>
+            <p>
+                
+                All the transaction , financial dealing will be audited jointly by stakeholders and external independent auditor . protocoin does not only provide an advanced mining-algorithm but implements so-called Ring Signatures, which obscure the sender and receiver of transactions will be audited . Auditing also ensures " there is no way for any one  to issue a flood of new protocoins  and devalue those already in circulation.”
+                
+            </p>
+             <h2>
+            shared responsibility :-
+             </h2>
+            <p>
+every stakeholder will have his own network and the liability of the member in the network will be jointly shared . Decentralised control for a fair trade and transaction. 
+            </p>
+            <br>
+        </div>
+
+
+
+    </div>
+</div>
+</article>
+
+
+
+
+<% include footer %>
+
+
+<script type="text/javascript" src="/javascripts/md5.min.js"></script>
+
+<script>
+    tjq(document).ready(function() {
+        tjq("#registerForm").validate({
+            rules: {
+                first_name: {
+                    required: true,
+                    
+                },
+                last_name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                },
+                password: {
+                    required: true,
+                     minlength: 3
+                },
+                re_password: {
+                    equalTo: "[name='password']",
+                    minlength: 3
+                }
+                ,
+                country: {
+                    required: true,
+                }
+                ,
+                city: {
+                    required: true,
+                }
+                ,
+                pincode: {
+                    required: true,
+                }
+
+
+            },
+            submitHandler: function() {
+
+                var first_name = tjq("[name='first_name']").val();
+                var last_name = tjq("[name='last_name']").val();
+                var email = tjq("[name='email']").val();
+                var password = tjq("[name='password']").val();
+                var loginpassword = tjq("[name='loginpassword']").val();
+                var country = tjq("[name='country']").val();
+                var city = tjq("[name='city']").val();
+                var pincode = tjq("[name='pincode']").val();
+                var mobilenumber = tjq("[name='mobilenumber']").val();
+
+                var passwordmd5=md5(email); 
+
+
+                var jsonData = {
+                    "first_name": first_name,
+                    "last_name": last_name,
+                    "email": email,
+                    "password": passwordmd5,
+                    "loginpassword": password,
+                    "country": country,
+                    "city": city,
+                    "pincode": pincode,
+                    "mobilenumber": mobilenumber,
+                    "type": 1,
+                };
+
+
+
+
+                tjq.ajax
+                        ({
+                            type: "POST",
+                            url: "/register",
+                            dataType: 'json',
+                            async: false,
+                            headers: {
+                                "Authorization": "<%- authorization %>",
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            data: jsonData,
+                            success: function(data) {
+
+                                console.log(data);
+                                if (data.data.code == 200) {
+
+
+                                    window.location.assign("/users/")
+
+
+                                } else {
+                                    tjq("#message").text(JSON.stringify(data.data.message));
+
+                                }
+
+
+                                return false;
+                            }
+                        });
+
+
+
+
+
+            }
+        });
+    });
+</script>
+
+
+
+

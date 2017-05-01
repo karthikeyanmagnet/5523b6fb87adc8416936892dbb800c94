@@ -1,0 +1,152 @@
+
+<% include header %>    
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+<% include menu %>            
+        
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                
+                
+                 <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Coin Update  <small> Statistics Overview </small>
+                        </h1>
+
+
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Coin Update
+                            </li>
+                        </ol>
+
+                    </div>
+
+
+
+                </div>
+              
+
+                <div class="row">
+                    
+                     <% if(ch==1) { %>
+                    <div class="col-lg-12">
+                    <div class="alert alert-success alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <i class="fa fa-info-circle"></i>  <strong>Update Successfully</strong> 
+                        </div>
+                    </div>
+                    <% } %>
+                    
+                     <div class="col-lg-12">
+                         <form action="/admin/coinUpdate" id="coinUpdate" method="post" >
+                     <table class="table table-bordered table-hover table-striped">
+                         
+                                <tbody>
+                     
+                                
+                     
+                                    <tr>
+                                        <td> Sell Rate Per Proto </td>
+                                        <td> <input type="text" class="form-control" name="per_coin_sell_dollar" value="<%- data[0].per_coin_sell_dollar %>"  ></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td> Buy Rate Per Proto </td>
+                                        <td> <input type="text" class="form-control" name="per_coin_buy_dollar" value="<%- data[0].per_coin_buy_dollar %>" ></td>
+                                        
+                                    </tr><tr>
+                                        <td>Coin Base Price </td>
+                                        <td> <input type="text" class="form-control" name="coin_current_base_price" value="<%- data[0].coin_current_base_price %>" ></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td> Number Of Coins Per Dollar </td>
+                                        <td> <input type="text" class="form-control" name="per_dollar_no_ofcoins" value="<%- data[0].per_dollar_no_ofcoins %>" ></td>
+                                        
+                                    </tr>
+                                    
+                                    
+                                    <tr>
+                                        <td> Curreny Symbol  </td>
+                                        <td> <input type="text" class="form-control" name="currency_type" value="<%- data[0].currency_type %>" ></td>
+                                        
+                                    </tr>
+                                    
+                              <tr>
+                                        <td>   </td>
+                                        <td> <button type="submit" class="btn btn-primary"> Update </button> </td>
+                                        
+                                    </tr>
+                                    
+                                </tbody>
+                         
+                            </table>
+                             </form>
+                     </div>
+                    
+                </div>
+                <!-- /.row -->
+
+               
+                <!-- /.row -->
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <% include footer %> 
+
+</body>
+
+</html>
+
+
+
+<script>
+    $(document).ready(function (){
+    $("#coinUpdate").validate({
+  rules: {
+    per_coin_sell_dollar: {
+      required: true,
+      number:true
+    },
+    per_coin_buy_dollar: {
+      required: true,
+      number:true
+    },
+    coin_current_base_price: {
+      required: true,
+      number:true
+    },
+    per_dollar_no_ofcoins: {
+      required: true,
+      number:true
+    }
+//   
+   
+  },
+  submitHandler: function() { 
+     
+      return true;
+
+    
+    }
+});
+});
+</script>

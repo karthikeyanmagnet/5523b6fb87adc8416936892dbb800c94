@@ -1,0 +1,102 @@
+
+<% include ../header %>    
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+<% include ../menu %>            
+        
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+              
+                
+                 <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Package Create  <small> Statistics Overview </small>
+                        </h1>
+
+
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Package Create
+                            </li>
+                        </ol>
+
+                    </div>
+
+
+
+                </div>
+              
+
+                <div class="row">
+                    
+                  
+                    <div class="col-lg-6">
+                     <div class="table-responsive">
+                         <form method="post" action="/admin/products/create" id="create">
+                             
+                                   <!-- Navigation -->
+<% buttonName='Update' %> 
+<% include form %> 
+                         </form>
+                        </div>
+                         </div>
+                    
+                </div>
+                <!-- /.row -->
+
+               
+                <!-- /.row -->
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <% include ../footer %> 
+
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function (){
+    $("#create").validate({
+  rules: {
+    package_name: {
+      required: true,
+    },
+    package_description: {
+      required: true,
+    },
+    package_type: {
+      required: true,
+    }
+   package_status:{
+      required: true,
+      number:true
+   }
+  },
+  submitHandler: function() { 
+     
+      return true;
+
+    
+    }
+});
+});
+</script>

@@ -1,0 +1,30 @@
+
+
+                          <%
+                          if(code==200) {
+                          for( var i in data.productdetails ) { %>
+                        
+                     <div class="col-lg-2 text-center panel panel-default shop-margin">
+                         <br>
+                         <div> <img src="/website/images/site/packageIcon.png" width="80%" />  </div>
+                         <br>
+                         <h4 class="shopHeading"> <%- data.productdetails[i].product_name %> </h4>
+                         <h4> $ <%- data.productdetails[i].product_price_detail.product_price %> </h4>
+                         <h5> Proto : <%- data.productdetails[i].product_price_detail.product_totalcoin %> </h5>
+<!--                         <div>
+                                <a href="/users/shop/addcart?product_title=<%- data.productdetails[i].product_title %>&price=<%- data.productdetails[i].product_price_detail.product_price %>&id=<%- data.productdetails[i]._id %>"> 
+                                <button class="btn btn-default"> View </button> </a>  </div>-->
+                                <div>
+                                <a href="/users/shop/view/<%- data.productdetails[i]._id %>"> 
+                                <button class="btn btn-default"> View </button> </a>  </div>
+                         <br>
+                         
+                         
+                 
+                     </div>
+                          <% } } else { %>
+                          <div class="col-lg-2 text-center panel panel-default shop-margin">
+                              No Products
+                          </div>
+                          <% } %>
+                   

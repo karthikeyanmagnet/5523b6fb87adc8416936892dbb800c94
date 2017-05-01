@@ -1,0 +1,594 @@
+
+<% include header %>    
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <% include menu %>            
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h3 class="page-header">
+                            DASHBOARD  <small> </small>
+                        </h3>
+
+
+<!--                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                        </ol>-->
+
+                    </div>
+
+
+
+                </div>
+                 
+<!--                 <div class="row">  
+                     
+                     
+                     <div class="col-lg-4 col-md-6 text-center">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    
+                                    <div class="">
+                                        <div class="huge">   $ <%=  data.buy_rate  %> </div>
+                                         <h3>  Buy Rate </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                     <a href="/users/sell">
+                      <div class="col-lg-4 col-md-6 text-center">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    
+                                    <div class="">
+                                        <div class="huge">  - </div>
+                                         <h3>  Transfer Your Coin </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                     </a>
+                      <div class="col-lg-4 col-md-6 text-center">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    
+                                    <div class="">
+                                        <div class="huge">     <h4>  $ <%=  data.sell_rate  %>  </h4> </div>
+                                         <h3>  Sell  Rate</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                     
+                 <div class="col-lg-4 col-md-6">
+                    <br>
+                    <br>
+
+                    <a href="/users/sell">  <button class="btn btn-blue"> Transfer Your Coin</button>   </a>
+                    </div>
+                    
+                    <div class="col-lg-2 pull-left text-center">
+                        
+                        <h3>  Buy Rate </h3>
+                        <h4>  $ <%=  data.buy_rate  %>  </h4>
+                    </div>
+                    
+                    <div class="col-lg-2 pull-right text-center">
+                        <h3>  Sell  Rate</h3>
+                        <h4>  $ <%=  data.sell_rate  %>  </h4>
+                    </div>                    
+                </div> -->
+                
+                
+                <div class="row">  
+                     
+                     
+                      <div class="col-lg-12">
+                     
+                 <div class="col-lg-3 col-md-6">
+                    
+
+                    <a href="/users/sell">  <button class="btn btn-blue"  style="font-size: 26px"> Transfer Your Coin</button>   </a>
+                    </div>
+                    
+
+                    
+                    <div class="col-lg-4 pull-right">
+                        <a href="/users/sell" class="pull-right" >  <button class="btn btn-success" style="font-size: 26px">  Sell Rate = $ <%=  data.sell_rate  %> </button>   </a>
+                         <a href="/users/sell" class="pull-right" style="margin: 0 10px 0 0;">  <button class="btn btn-warning"  style="font-size: 26px"> Buy Rate = $ <%=  data.buy_rate  %> </button>   </a>
+                    </div> 
+                      </div>
+                </div> 
+
+                <br>
+                <br>             
+                    
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <div class="panel-heading">
+                                <a href="/users/myaccount" >
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#f05050">
+                                        <i class=" fa-4x glyphicon glyphicon-bitcoin" ></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> <%=  data.total_coins_buyed  %> P </div>
+                                        <div> Proto Coin Balance </div>
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <div class="panel-heading">
+                                 <a href="/users/myaccount" >
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#7266ba">
+                                        <i class=" fa-4x glyphicon glyphicon-jpy"></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> $ <%=  data.total_coins_buyed  %>  </div>
+                                        <div> Cash Account Balance </div>
+                                    </div>
+                                </div>
+                                 </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    
+<!--                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <div class="panel-heading">
+                                <a href="/users/myaccount" >
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#22b7e5">
+                                        <i class=" fa-4x glyphicon glyphicon-usd"></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> <%=  data.total_coins_buyed  %> </div>
+                                        <div>No Of Members</div>
+                                    </div>
+                                </div>
+                                    </a>
+                            </div>
+
+                        </div>
+                    </div>-->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <a href="/users/network" >
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#26c24c">
+                                        <i class=" fa-4x glyphicon glyphicon-folder-close"></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> 25 </div>
+                                         <div>No Of Members in Your Network</div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <a href="/users/network" >
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#f0ad4e">
+                                        <i class=" fa-4x glyphicon glyphicon-tint"></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> 2 </div>
+                                        <div> Power Up LEFT </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <a href="/users/network" >
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#f05050">
+                                        <i class=" fa-4x glyphicon glyphicon-user"></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> $575 </div>
+                                        <div> Bonus  Earned This Week </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <a href="/users/network" >
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#f05050">
+                                        <i class=" fa-4x glyphicon glyphicon-bitcoin" ></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> $ 10548 </div>
+                                        <div> Total Bonus  Earned </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                   <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <a href="/users/network" >
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#7266ba">
+                                        <i class=" fa-4x glyphicon glyphicon-jpy"></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> 80 </div>
+                                        <div> No Of Miners Till Next Rise </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+
+                        </div>
+                    </div>
+<!--                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#22b7e5">
+                                        <i class=" fa-4x glyphicon glyphicon-usd"></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> <%=  data.total_coins_buyed  %> </div>
+                                        <div>Total Coins Owned</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#26c24c">
+                                        <i class=" fa-4x glyphicon glyphicon-folder-close"></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> <%=  data.total_coins_buyed  %> </div>
+                                        <div>Total Coins Owned</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#f0ad4e">
+                                        <i class=" fa-4x glyphicon glyphicon-tint"></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> <%=  data.total_coins_buyed  %> </div>
+                                        <div>Total Coins Owned</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel user-panel-box">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3 user-panel-icon" style="background:#f05050">
+                                        <i class=" fa-4x glyphicon glyphicon-user"></i>
+                                    </div>
+                                    <div class="col-xs-7 text-right">
+                                        <div class="huge"> <%=  data.total_coins_buyed  %> </div>
+                                        <div>Total Coins Owned</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>-->
+
+                </div>
+
+<!--
+                <div class="row">
+                    <div class="col-lg-12" >
+                    <div class="col-lg-12 panel panel-default">
+
+                        <div class="row">
+                            <div class="col-lg-8"> 
+                                <h3>  AN IMPORTANT NEWS </h3> 
+                                <p>             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only . Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only    </p>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="col-lg-8">
+                                    <h3>  AN IMPORTANT NEWS </h3> 
+                                    <p>             Lorem Ipsum is simply dummy text of the <br> printing and typesetting industry. </p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <br> <br><br>
+                                    <i class=" fa-4x glyphicon glyphicon-folder-close"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                </div>    -->
+                <!-- /.row -->
+                <div class="row">
+                
+                    <div class="col-lg-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> ProtoCoin Exchange Rates</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-area-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+<!--                 <div class="row">
+                     <div class="col-lg-12">
+                           <div class="col-lg-12 panel panel-default">
+                         <h3> Lates News </h3>
+                         <br><br>
+                         
+                         <div class="row">
+                             <div class="col-lg-2">  <img src="/images/news1.jpg" width="90%" />  </div>
+                            <div class="col-lg-10">   
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only . Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only   
+                                
+                                <div style="color: #f05050"> Read More   </div>
+                                
+                            </div>
+                             
+                         </div>
+                         <br>
+                         <br>
+                         <br>
+                         <div class="row">
+                             <hr>
+                            <div class="col-lg-10">   
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only . Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only   
+                                
+                                <div style="color: #f05050"> Read More   </div>
+                                
+                            </div>
+                             <div class="col-lg-2">  <img src="/images/news1.jpg" width="90%" />  </div>
+                         </div>
+                         <br><br>
+                           </div>
+                     </div>
+                     
+                     </div>-->
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Total Proto</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-donut-chart"></div>
+                                <div class="text-right">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>  Last Transfer</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-line-chart"></div>
+                                <div class="text-right">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Last Withdrawn</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-line-chart1"></div>
+                                <div class="text-right">
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+                <!-- /.row -->
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <% include footer %>            
+
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+        
+        
+        var chartData=[];
+        
+        <% for(var i in linegrap.data.data) { %>
+            
+           var chartData1={}; 
+           chartData1.period="<%- linegrap.data.data[i].meta.modified_at %>";
+           chartData1.sell=<%- linegrap.data.data[i].sell_rate %>;
+           chartData1.buy=<%- linegrap.data.data[i].buy_rate %>;
+          
+           chartData.push(chartData1); 
+        <% } %>
+        console.log(chartData);
+          Morris.Area({
+        element: 'morris-area-chart',
+        data:chartData ,
+        xkey: 'period',
+        ykeys: ['sell', 'buy', ],
+        labels: ['sell', 'buy', ],
+        pointSize: 2,
+        hideHover: 'auto',
+        resize: true
+    });
+    
+    
+    
+    var yourCoin=<%= linegrap1.data.data.user_coins_graph %>;
+    var targetCoin=<%= 10000-linegrap1.data.data.user_coins_graph %>
+    
+    // Donut Chart
+    Morris.Donut({
+        element: 'morris-donut-chart',
+        data: [ {
+            label: "Total Coin",
+            value: targetCoin
+        },{
+            label: "Your Coin",
+            value: yourCoin
+        }],
+        resize: true
+    });
+
+
+ var chartData=[];
+        
+        <% for(var i in linegrap1.data.data.transfer_graph) { %>
+            
+           var chartData1={}; 
+           chartData1.d="<%- linegrap1.data.data.transfer_graph[i].meta.modified_at %>";
+           chartData1.coins=<%- linegrap1.data.data.transfer_graph[i].no_of_cointransferred %>;
+          
+          
+           chartData.push(chartData1); 
+        <% } %>
+
+
+    // Line Chart
+    Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'morris-line-chart',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: chartData,
+        // The name of the data record attribute that contains x-visitss.
+        xkey: 'd',
+        // A list of names of data record attributes that contain y-visitss.
+        ykeys: ['coins'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['coins'],
+        // Disables line smoothing
+        smooth: false,
+        resize: true
+    });
+    
+    
+    var chartData=[];
+        
+        <% for(var i in linegrap1.data.data.withdrawn_graph) { %>
+            
+           var chartData1={}; 
+           chartData1.d="<%- linegrap1.data.data.withdrawn_graph[i].meta.modified_at %>";
+           chartData1.coins=<%- linegrap1.data.data.withdrawn_graph[i].no_of_cointransferred %>;
+          
+          
+           chartData.push(chartData1); 
+        <% } %>
+
+
+    // Line Chart
+    Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'morris-line-chart1',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: chartData,
+        // The name of the data record attribute that contains x-visitss.
+        xkey: 'd',
+        // A list of names of data record attributes that contain y-visitss.
+        ykeys: ['coins'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['coins'],
+        // Disables line smoothing
+        smooth: false,
+        resize: true
+    });
+    
+    
+   
+        </script>

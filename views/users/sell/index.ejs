@@ -1,0 +1,309 @@
+<% include ../header %>
+
+<style>
+
+.header-font{font-size:18px !important}
+</style>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <body>
+
+        <div id="wrapper">
+
+            <!-- Navigation -->
+            <% include ../menu %>
+
+
+                <div id="page-wrapper">
+
+                    <div class="container-fluid">
+
+
+
+                        <div class="row top-heading">
+                            <div class="col-lg-12">
+                                <h3 class="page-header">
+                                    TRANSFER <small>  </small>
+                                </h3>
+
+
+                  <!--              <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-dashboard"></i> Transfer
+                                    </li>
+                                </ol>  -->
+
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="row">
+
+
+                            <div class="col-lg-12 " id="message">
+
+                            </div>
+
+
+                            <br>
+
+                            <div class="col-lg-12 panel">
+                                <div class="col-lg-9">
+                                    <h3> Transfer Your Coin </h3>
+                                    <form id="transfer">
+                                        <!-- /.row -->
+                                        <table class="table table-bordered table-hover table-striped">
+
+                                            <tbody>
+
+
+
+                                                <tr>
+                                                    <td> No Of Coin Transferred </td>
+                                                    <td> <input type="text" class="form-control" name="no_of_cointransferred"
+                                                            id="no_of_cointransferred">
+
+                                                    </td>
+                                                    <td> Tax </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" value="0" disabled="" id="tax">
+                                                    </td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td> Amount in $ </td>
+                                                    <td> <input type="text" class="form-control" value="" id="amount"></td>
+                                                    <td> Fee </td>
+                                                    <td> <input type="text" class="form-control" value="0" disabled="" id="fee"></td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td> To </td>
+                                                    <td> <input type="text" class="form-control" name="mobileno" id="mobileno">
+                                                        <input type="hidden" class="form-control" name="to_user_id" id="to_user_id">
+
+                                                    </td>
+                                                    <td> Total </td>
+                                                    <td> <input type="text" class="form-control" value="" id="total"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td> Transaction Password </td>
+                                                    <td>
+                                                        <input type="password" class="form-control" name="tran_pass" id="tran_pass">
+                                                    </td>
+                                                    <td> </td>
+                                                    <td></td>
+
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td> </td>
+                                                    <td> <button type="submit" class="btn btn-primary"> Transfer   </button> </td>
+                                                    <td> </td>
+                                                    <td> </td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="panel row">
+                                        <div class="col-lg-12">
+                                            <h3> Balance </h3>
+
+                                            <hr>
+                                        </div>
+
+                                        <div class="col-lg-12 text-right ">
+                                            <span> Balance <span> <br> 
+                                        <b> <%= balance %> Proto </b>
+                                <hr>
+                            </div>
+                            <hr>
+
+                            <hr>
+                            
+                        </div>
+                        
+                    </div>
+                    </div>
+                        
+                        
+                </div>
+
+                <!-- /.row -->
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <% include ../footer %>  
+
+</body>
+
+</html>
+<script src="/javascripts/jquery-ui.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        console.log("Transfer called");
+        $("#no_of_cointransferred").keyup(function () {
+            var no_of_cointransferred = $("#no_of_cointransferred").val();
+            var tax = $("#tax").val();
+            var fee = $("#fee").val();
+            var perCoinAmount = <%- data[0].coin_current_base_price %>;
+            var amount = no_of_cointransferred * perCoinAmount;
+            $("#amount").val(amount);
+            var total = no_of_cointransferred * perCoinAmount + parseInt(fee) + parseInt(tax);
+            $("#total").val(total);
+
+
+
+        })
+
+
+        $("#amount").keyup(function () {
+            var no_of_cointransferred = $("#no_of_cointransferred").val();
+            var amount = $("#amount").val();
+            var tax = $("#tax").val();
+            var fee = $("#fee").val();
+            var perCoinAmount = <%- data[0].coin_current_base_price %>;
+            var amount = amount / perCoinAmount;
+            $("#no_of_cointransferred").val(amount);
+            var total = no_of_cointransferred * perCoinAmount - parseInt(fee) - parseInt(tax);
+            $("#total").val(total);
+
+
+
+        })
+
+
+        $("#transfer").validate({
+            rules: {
+                mobileno: {
+                    required: true,
+
+                },
+                no_of_cointransferred: {
+                    required: true,
+                    number: true
+                },
+                tran_pass: {
+                    required: true,
+
+                }
+
+
+            },
+            submitHandler: function () {
+
+                var to_user_id = $("[name='to_user_id']").val();
+                var no_of_cointransferred = $("[name='no_of_cointransferred']").val();
+                var tran_pass = $("[name='tran_pass']").val();
+
+                var jsonData = {
+                    "user_id": "<%- userId %>",
+                    "to_user_id": to_user_id,
+                    "user_type": "1",
+                    "no_of_cointransferred": no_of_cointransferred,
+                    "transaction_type": "1",
+                    "transaction_status": "1",
+                    "tran_pass": tran_pass
+
+                };
+
+                console.log(jsonData);
+
+                //    var jsonData = JSON.stringify(jsonData);
+
+                $.ajax
+                    ({
+                        type: "POST",
+                        url: "/users/transfer",
+                        dataType: 'json',
+                        async: false,
+                        headers: {
+                            "Authorization": "<%- authorization %>",
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        data: jsonData,
+                        success: function (data) {
+                            //alert('Thanks for your comment!');
+
+                            if (data.data.code == 200) {
+                                $("[name='to_user_id']").val("");
+                                $("[name='no_of_cointransferred']").val("");
+                                $("#message").html('<div class="alert alert-success">\n\
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>\n\
+<i class="fa fa-info-circle"></i> \n\
+ <strong id="message"> ' + JSON.stringify(data.data.message) + ' </strong></div>');
+
+                                alert('Coin Transfered Successfully');
+                                res.render('users/', jsonData);
+
+
+
+                            } else {
+                                $("#message").html('<div class="alert alert-danger">\n\
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>\n\
+<i class="fa fa-info-circle"></i> \n\
+ <strong id="message"> ' + JSON.stringify(data.data.message) + ' </strong></div>');
+
+                            }
+
+
+                            return false;
+                        }
+                    });
+
+
+
+
+
+            }
+        });
+
+
+
+
+
+        function log(message) {
+            $("<div>").text(message).prependTo("#log");
+            $("#log").scrollTop(0);
+        }
+
+        $("#mobileno").autocomplete({
+            source: "/users/toUser",
+            minLength: 2,
+            select: function (event, ui) {
+                console.log(event, "event");
+                console.log(ui, "ui");
+                $("#to_user_id").val(ui.item.id);
+                log("Selected: " + ui.item.value + " aka " + ui.item.id);
+            }
+        });
+
+
+
+    });
+</script>

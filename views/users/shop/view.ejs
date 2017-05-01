@@ -1,0 +1,90 @@
+
+<% include ../header %>    
+
+
+<style>
+    
+.shopHeading{color:#056280}    
+.shop-margin{margin: 10px}
+</style>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+<% include ../menu %>            
+        
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                
+                
+                
+                   <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Shop View  <small>  </small>
+                        </h1>
+
+
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Shop View
+                            </li>
+                        </ol>
+                        
+                        
+
+
+
+                    </div>
+              
+
+                
+               <div class="row">
+                    
+                    
+                    
+                    <div class="col-lg-6 text-center">
+                       
+                        <img src="/website/images/site/packageIcon.png" >
+                    </div>
+                   <form action="/users/shop/addcart" method="post" > 
+                    <div class="col-lg-6">
+                        <input type="hidden" name="params" value="<%= JSON.stringify(data) %>" />
+                        <b> Product Name : </b> <%- data.product_title  %>
+                        <br>
+                        <b> Product Price : </b>  $ <%- data.product_price_detail.product_price  %>
+                        <br> 
+                        <b> Description : </b> 
+                        <p> <%- data.product_description  %> </p>
+                        <br>
+                       
+                        <button class="btn btn-default" type="submit"> Add Cart </button>
+                        
+                    </div>
+                     </form>
+                </div>
+
+            </div>
+                
+                
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <% include ../footer %> 
+
+</body>
+
+</html>
+
+
+

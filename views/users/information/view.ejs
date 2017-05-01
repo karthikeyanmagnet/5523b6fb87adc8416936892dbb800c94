@@ -1,0 +1,79 @@
+
+<% include ../header %>    
+
+
+<style>
+    
+.shopHeading{color:#056280}    
+.shop-margin{margin: 10px}
+</style>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+<% include ../menu %>            
+        
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                
+                     <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                             Information Center  <small>  </small>
+                        </h1>
+
+
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i>  Information Center View
+                            </li>
+                        </ol>
+
+                    </div>
+
+
+
+                </div>
+                <br>
+
+                <div class="row panel">
+                    
+                         
+                        
+                     <div class="col-lg-12  ">
+                    
+                         <h3> <%- data.supportinfo_title %> </h3>
+                         
+                         <div> <%- data.supportinfo_description %> </div>
+                         
+                 
+                     </div>
+                         
+                    
+                </div>
+                <!-- /.row -->
+
+               
+                <!-- /.row -->
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <% include ../footer %> 
+
+</body>
+
+</html>

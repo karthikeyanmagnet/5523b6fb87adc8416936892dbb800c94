@@ -1,0 +1,76 @@
+ <table class="table table-bordered table-hover table-striped">
+                                
+                                <tbody>
+                     
+                                
+                     
+                                    <tr>
+                                        <td> Products Title </td>
+                                        <td> <input type="text" class="form-control" name="product_title" value="<%- data.product_title %>"  ></td>
+                                        
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Products Description </td>
+                                        <td> <input type="text" class="form-control" name="product_description" value="<%- data.product_description %>"  ></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Products Type </td>
+                                        <td> 
+                                            <select name="product_type" class="form-control">
+                                                <option value="0" <% if(data.product_type==0) { %> selected="selected" <% } %> > Ecommerce </option>
+                                                <option value="1" <% if(data.product_type==1) { %> selected="selected" <% } %> > Package </option>
+                                                <option value="2" <% if(data.product_type==2) { %> selected="selected" <% } %> > Token </option>
+                                            </select>
+                                            
+                                        </td>
+                                        
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Products Status </td>
+                                        <td> <input type="text" class="form-control" name="product_status" value="<%- data.product_status %>"  ></td>
+                                        
+                                    </tr>
+<!--                                    <tr>
+                                        <td>Is Products Available </td>
+                                        <td> <input type="text" class="form-control" name="is_product_available" value="<%- data.is_product_available %>"  ></td>
+                                        
+                                    </tr>-->
+                                    <tr>
+                                        <td>Currency Type </td>
+                                        <td> <input type="text" class="form-control" name="currency_type" value="<%- data.product_price_detail.currency_type %>"  ></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Products Discount </td>
+                                        <td> <input type="text" class="form-control" name="product_discount" value="<%- data.product_price_detail.product_discount %>"  ></td>
+                                        
+                                    </tr>
+                                   
+                                    <tr>
+                                        <td>Products Total Coin </td>
+                                        <td> <input type="text" class="form-control" name="product_totalcoin" value="<%- data.product_price_detail.product_totalcoin %>"  ></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Products Price </td>
+                                        <td> <input type="text" class="form-control" name="product_price" value="<%- data.product_price_detail.product_price %>"  ></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Products Discount Available </td>
+                                        <td> <input type="text" class="form-control" name="product_discount_available" value="<%- data.product_price_detail.product_discount_available %>"  ></td>
+                                        
+                                    </tr>
+                                  
+                                    
+                              <tr>
+                                        <td>   </td>
+                                        <td> <button type="submit" class="btn btn-primary"> <%= buttonName %>   </button> </td>
+                                        
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>

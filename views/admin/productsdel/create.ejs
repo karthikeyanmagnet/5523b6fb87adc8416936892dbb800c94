@@ -1,0 +1,98 @@
+
+<% include header %>    
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+<% include menu %>            
+        
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+              
+                
+                <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Products  <small> Statistics Overview </small>
+                        </h1>
+
+
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Products Create
+                            </li>
+                        </ol>
+
+                    </div>
+
+
+
+                </div>
+              
+
+                <div class="row">
+                    
+               
+                    <div class="col-lg-6">
+                     <div class="table-responsive">
+                         <form method="post" action="/admin/products" id="productCreate">
+                                   <!-- Navigation -->
+<% buttonName='Create' %> 
+<% include productForm %> 
+                         </form>
+                        </div>
+                         </div>
+                    
+                </div>
+                <!-- /.row -->
+
+               
+                <!-- /.row -->
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <% include footer %> 
+
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function (){
+    $("#productCreate").validate({
+  rules: {
+    product_title: {
+      required: true,
+    },
+    product_description: {
+      required: true,
+    },
+    product_price: {
+      required: true,
+    }
+   
+  },
+  submitHandler: function() { 
+     
+      return true;
+
+    
+    }
+});
+});
+</script>

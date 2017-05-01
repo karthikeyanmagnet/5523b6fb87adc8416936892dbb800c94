@@ -1,0 +1,109 @@
+
+<% include ../header %>    
+
+
+<style>
+    
+.shopHeading{color:#056280}    
+.shop-margin{margin: 10px}
+</style>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+<% include ../menu %>            
+        
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                
+                
+               
+                
+                  
+                <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h3 class="page-header">
+                             SUPPORT  <small>  </small>
+                        </h3>
+
+
+         <!--               <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i>  Support
+                            </li>
+                        </ol> -->
+
+                    </div>
+
+                </div>
+
+                 <div class="row"> 
+                    
+                    
+                    
+                  <div class="col-lg-12">
+                    
+                      
+                      <h4>   Comming Soon </h4>
+                     
+                  </div>
+                
+                </div>
+
+                <br>
+              
+
+                <div class="row">
+                    
+                          <% for( var i in data ) { %>
+                        
+                     <div class="col-lg-12  ">
+                    
+                         <div class="panel panel-default col-lg-12"> 
+                         <div class="text-center  col-lg-3">  
+                             <br>
+                             <img src="/website/images/site/blog2.jpg" width="100%" /> 
+                               <br>  <br>
+                         </div>
+                             <div class="col-lg-9">     
+                                 <h3> <%- data[i].supportinfo_title %> </h3>
+                                  <p> <%- data[i].supportinfo_description %> </p>
+                                  <div class="pull-right row"> <a href="/users/informationView/<%- data[i]._id %>">  <button class="btn"> View More  </button> </a> </div>
+                             </div>
+                         </div>
+                         
+                         <br>
+                         
+                         
+                 
+                     </div>
+                          <% } %>
+                    
+                </div>
+                <!-- /.row -->
+
+               
+                <!-- /.row -->
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <% include ../footer %> 
+
+</body>
+
+</html>
