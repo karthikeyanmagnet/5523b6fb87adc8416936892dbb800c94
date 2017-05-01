@@ -508,7 +508,28 @@
     
     
     var yourCoin=<%= linegrap1.data.data.user_coins_graph %>;
-    var targetCoin=<%= 10000-linegrap1.data.data.user_coins_graph %>
+    
+   <% 
+   var hiCount=100;
+            if(linegrap1.data.data.user_coins_graph>99) {
+       hiCount=1000;
+            }
+    if(linegrap1.data.data.user_coins_graph>999) { 
+       hiCount=10000;
+    }
+    if(linegrap1.data.data.user_coins_graph>9999) {
+       hiCount=100000;
+    } 
+   if(linegrap1.data.data.user_coins_graph>99999) {
+       hiCount=1000000;
+    } 
+     if(linegrap1.data.data.user_coins_graph>999999) { 
+       hiCount=10000000;
+    } 
+    
+    %>
+    
+    var targetCoin=<%= hiCount-linegrap1.data.data.user_coins_graph %>
     
     // Donut Chart
     Morris.Donut({

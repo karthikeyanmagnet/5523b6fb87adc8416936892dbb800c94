@@ -63,10 +63,6 @@
                                         <td> Buy Rate Per Proto </td>
                                         <td> <input type="text" class="form-control" name="per_coin_buy_dollar" value="<%- data[0].per_coin_buy_dollar %>" ></td>
                                         
-                                    </tr><tr>
-                                        <td>Coin Base Price </td>
-                                        <td> <input type="text" class="form-control" name="coin_current_base_price" value="<%- data[0].coin_current_base_price %>" ></td>
-                                        
                                     </tr>
                                     <tr>
                                         <td> Number Of Coins Per Dollar </td>
@@ -123,17 +119,13 @@
     $("#coinUpdate").validate({
   rules: {
     per_coin_sell_dollar: {
-      required: true,
-      number:true
+      required: true
     },
     per_coin_buy_dollar: {
       required: true,
       number:true
     },
-    coin_current_base_price: {
-      required: true,
-      number:true
-    },
+   
     per_dollar_no_ofcoins: {
       required: true,
       number:true

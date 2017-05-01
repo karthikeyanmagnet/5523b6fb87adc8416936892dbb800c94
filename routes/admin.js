@@ -322,14 +322,14 @@ router.get('/coinUpdate', start, function (req, res, next) {
 
 router.post('/coinUpdate',start, function (req, res, next) {
 
-    
+    console.log(req.body);
     
 
     var jsonData = {
-        "per_dollar_no_ofcoins": parseInt(req.body.per_dollar_no_ofcoins),
-        "coin_current_base_price": parseInt(req.body.coin_current_base_price),
-        "per_coin_buy_dollar": parseInt(req.body.per_coin_buy_dollar),
-        "per_coin_sell_dollar": parseInt(req.body.per_coin_sell_dollar),
+        "per_dollar_no_ofcoins": parseInt(req.body.per_dollar_no_ofcoins).toFixed(2),
+//        "coin_current_base_price": parseInt(req.body.coin_current_base_price),
+        "per_coin_buy_dollar": parseInt(req.body.per_coin_buy_dollar).toFixed(2),
+        "per_coin_sell_dollar": parseInt(req.body.per_coin_sell_dollar).toFixed(2),
         "currency_type": req.body.currency_type,
         "meta": meta
         };
