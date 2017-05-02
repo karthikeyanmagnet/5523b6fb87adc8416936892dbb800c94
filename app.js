@@ -15,19 +15,6 @@ var path = require("path");
 
 filepath = path.resolve(__dirname);
 
-
-
-
-
-
-
- 
-  
-
-
-
-
-
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
