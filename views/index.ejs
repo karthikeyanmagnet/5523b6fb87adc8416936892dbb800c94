@@ -2,22 +2,48 @@
 
     <article id="content">
 
-        <section class="bannerImg">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img class="first-slide" src="/website/images/site/slider/42842610_l.jpg" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <!-- <h1>Welcome.</h1> -->
+                            <h1>" Protocoins are digital gold ,Money that promises to preserve and increase its value over time
+                                "
+                            </h1>
 
-            <div class="mainSlider">
-                <div class="">
-                    <img src="/website/images/site/slider/slider3.jpg" class="full-box" height="727px" />
+                            <br><br>
+                        </div>
+                    </div>
                 </div>
-                <div class="">
-                    <img src="/website/images/site/slider/slider1.jpg" class="full-box" height="727px" />
+                <div class="item">
+                    <img class="second-slide" src="/website/images/site/slider/img-2.jpg" alt="Second slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>"Protocoin are also a fast and comfortable means of payment with a worldwide scope, and they
+                                are private and anonymous enough to serve as a means of payment ."</h1>
+                            <!--      <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p> -->
+                        </div>
+                    </div>
                 </div>
-                <div class="">
-                    <img src="/website/images/site/slider/slider2.jpg" class="full-box" height="727px" />
-                </div>
-
 
             </div>
-        </section>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
         <div class="clearfix"></div>
 
         <section class="container text-center coinRating">
@@ -35,7 +61,7 @@
 
                         <div class="cc-main" tabindex="-1">
                             <form action="" method="post" novalidate="novalidate" tabindex="-1">
-                                
+
                                 <input type="hidden" name="C17316FC" value="CA09CAF4DCFC1790CAB22D7E12C5F982" tabindex="-1">
 
 
@@ -301,7 +327,7 @@
 
     <% include footer %>
         <script>
-//            document.getElementById('listBoxId').selectedIndex = 12;
+            //            document.getElementById('listBoxId').selectedIndex = 12;
 
             $ = tjq;
         </script>

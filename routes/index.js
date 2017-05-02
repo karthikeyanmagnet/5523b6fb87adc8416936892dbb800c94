@@ -206,14 +206,21 @@ router.post('/register', function (req, res, next) {
 
         res.json(body);
 
+
+  
+
+
+
+
     });
 
 });
 
 
 router.get('/logout', function (req, res, next) {
+
     req.session.destroy();
-    res.redirect('/admin');
+    res.redirect('/');
 });
 
 

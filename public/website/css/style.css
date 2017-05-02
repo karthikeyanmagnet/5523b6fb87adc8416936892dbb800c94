@@ -201,7 +201,7 @@ span.active, a.active, h2.active, h3.active, h4.active, h5.active, h6.active {
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 15px;
   font-weight: normal;
-  color: #2d3e52;
+  color: #ffffff;
 }
 
 h1 {
@@ -12910,4 +12910,39 @@ input.input-text:focus, textarea:focus, .selector select:focus + .custom-select 
   outline: none;
   border: 1px solid #01b7f2;
   box-shadow: 0 0 8px rgba(1, 183, 242, 0.6);
+}
+/* Carousel base class */
+.carousel {
+  height: 900px !important;
+  margin-bottom: 60px;
+}
+
+
+
+
+
+/* Since positioning the image, we need to help out the caption */
+
+.carousel-caption {
+    top: 30%;
+    bottom: auto;
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 900px !important;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 900px !important;
+}
+
+h1 {
+    font-size: 38px;
+    line-height: 1.375em;
+    color: #ffffff;
+    font-weight: 400;
+    margin-bottom: 30px;
 }
