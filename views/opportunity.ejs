@@ -1,63 +1,90 @@
+<% include header %>
 
-         
-        <% include header %>
-        
-     <article id="content">
-          <section class="bannerImg">
+    <article id="content">
+        <section class="bannerImg">
 
-        <div class="mainSlider">
-           <div class="">
-                <img src="/website/images/site/slider/slider3.jpg" class="full-box" height="727px" />
-            </div>
-            <div class="">
-                <img src="/website/images/site/slider/slider1.jpg" class="full-box" height="727px" />
-            </div>
-            <div class="">
-                <img src="/website/images/site/slider/slider2.jpg" class="full-box" height="727px" />
-            </div>
-            
-            
-        </div> 
-    </section>  
-            <div class="container" >
-                
-                <h2> Future Of Protocoins </h2>
-                
-         <div class="row features">
-                        <div class="col-sms-6 col-sm-6 col-md-3">
-                            <div class="travelo-box">
-                                <h4 class="s-title">Cryptocurrency</h4>
-                                <p> Cryptocurrency like protocins  is on the verge of going mainstream.
- 
-</p>
-                            </div>
-                        </div>
-                        <div class="col-sms-6 col-sm-6 col-md-3">
-                            <div class="travelo-box">
-                                <h4 class="s-title">Businesses</h4>
-                                <p>As more businesses decide that there is opportunity in digital currency, the value will naturally rise with the demand
-</p>
-                            </div>
-                        </div>
-                        <div class="col-sms-6 col-sm-6 col-md-3">
-                            <div class="travelo-box">
-                                <h4 class="s-title">Protocoins</h4>
-                                <p>The value of  protocoins will increased about 5-10 times the current price</p>
-                            </div>
-                        </div>
-                        <div class="col-sms-6 col-sm-6 col-md-3">
-                            <div class="travelo-box">
-                                <h4 class="s-title"> Technological Innovations </h4>
-                                <p> Technological innovations like   Smart contracts, which  allow a huge possibility of applications. They are computer protocols that have the main purpose of executing the terms of a contract in order to satisfy common contractual conditions without the need of trusted intermediaries.
-This way, smart contracts can be used as the deepest layer of any kind of application development and not just to set payment-related transactions </p>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img class="first-slide" src="/website/images/site/slider/42842610_l.jpg" alt="First slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <!--<h1>Welcome.</h1>-->
+                                <h1>" Protocoins are digital gold ,Money that promises to preserve and increase its value over
+                                    time "
+                                </h1>
+                                <br><br>
                             </div>
                         </div>
                     </div>
-         
-            </div>
-        </article>
-        
-        
-        <% include footer %>
-   
+                    <div class="item">
+                        <img class="second-slide" src="/website/images/site/slider/img-2.jpg" alt="Second slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>"Protocoin are also a fast and comfortable means of payment with a worldwide scope, and they
+                                    are private and anonymous enough to serve as a means of payment ."</h1>
+                                <!--      <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p> -->
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </section>
+        <div class="container">
+
+            <h2> Future Of Protocoins </h2>
+
+            <div class="row features">
+                <div class="col-sms-6 col-sm-6 col-md-3">
+                    <div class="travelo-box">
+                        <h4 class="s-title">Cryptocurrency</h4>
+                        <p> Cryptocurrency like protocins is on the verge of going mainstream.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sms-6 col-sm-6 col-md-3">
+                    <div class="travelo-box">
+                        <h4 class="s-title">Businesses</h4>
+                        <p>As more businesses decide that there is opportunity in digital currency, the value will naturally
+                            rise with the demand
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sms-6 col-sm-6 col-md-3">
+                    <div class="travelo-box">
+                        <h4 class="s-title">Protocoins</h4>
+                        <p>The value of protocoins will increased about 5-10 times the current price</p>
+                    </div>
+                </div>
+                <div class="col-sms-6 col-sm-6 col-md-3">
+                    <div class="travelo-box">
+                        <h4 class="s-title"> Technological Innovations </h4>
+                        <p> Technological innovations like Smart contracts, which allow a huge possibility of applications. They
+                            are computer protocols that have the main purpose of executing the terms of a contract in order
+                            to satisfy common contractual conditions without the need of trusted intermediaries. This way,
+                            smart contracts can be used as the deepest layer of any kind of application development and not
+                            just to set payment-related transactions </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+
+    <% include footer %>

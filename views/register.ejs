@@ -1,244 +1,266 @@
-
-
 <% include header %>
 
 
-<article id="content">
+    <article id="content">
 
-    <section class="bannerImg">
+        <section class="bannerImg">
 
-        <div class="mainSlider">
-           <div class="">
-                <img src="/website/images/site/slider/slider3.jpg" class="full-box" height="727px" />
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img class="first-slide" src="/website/images/site/slider/42842610_l.jpg" alt="First slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <!--<h1>Welcome.</h1>-->
+                                <h1>" Protocoins are digital gold ,Money that promises to preserve and increase its value over
+                                    time "
+                                </h1>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img class="second-slide" src="/website/images/site/slider/img-2.jpg" alt="Second slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>"Protocoin are also a fast and comfortable means of payment with a worldwide scope, and they
+                                    are private and anonymous enough to serve as a means of payment ."</h1>
+                                <!--      <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p> -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-            <div class="">
-                <img src="/website/images/site/slider/slider1.jpg" class="full-box" height="727px" />
-            </div>
-            <div class="">
-                <img src="/website/images/site/slider/slider2.jpg" class="full-box" height="727px" />
-            </div>
-            
-            
-        </div> 
-    </section> 
-    <div class="clearfix"></div>
-    <div class="container" >
+        </section>
+        <div class="clearfix"></div>
+        <div class="container">
 
-        <div class="row ">
- <form class="contact-form" id="registerForm" >
+            <div class="row ">
+                <form class="contact-form" id="registerForm">
 
-            <div class="travelo-box col-sm-4">
-               
-                    <h5 class="box-title" id="message" style="color:#DD4B39">  </h5>
-                    <h4 class="box-title"> Register </h4>
-                    <h4 class="box-title" id="message" style="color: #DD4B39">  </h4>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label> First Name </label>
-                            <input type="text" name="first_name" class="input-text full-width">
+                    <div class="travelo-box col-sm-4">
+
+                        <h5 class="box-title" id="message" style="color:#DD4B39"> </h5>
+                        <h4 class="box-title"> Register </h4>
+                        <h4 class="box-title" id="message" style="color: #DD4B39"> </h4>
+                        <div class="row form-group">
+                            <div class="col-xs-12">
+                                <label> First Name </label>
+                                <input type="text" name="first_name" class="input-text full-width">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label>Last Name</label>
-                            <input type="text" name="last_name" class="input-text full-width">
+                        <div class="row form-group">
+                            <div class="col-xs-12">
+                                <label>Last Name</label>
+                                <input type="text" name="last_name" class="input-text full-width">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label>Email</label>
-                            <input type="text" name="email" class="input-text full-width">
+                        <div class="row form-group">
+                            <div class="col-xs-12">
+                                <label>Email</label>
+                                <input type="text" name="email" class="input-text full-width">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label>Mobile</label>
-                            <input type="text" name="mobilenumber" class="input-text full-width">
+                        <div class="row form-group">
+                            <div class="col-xs-12">
+                                <label>Mobile</label>
+                                <input type="text" name="mobilenumber" class="input-text full-width">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label>Password</label>
-                            <input type="password" name="password" id="password"  class="input-text full-width">
+                        <div class="row form-group">
+                            <div class="col-xs-12">
+                                <label>Password</label>
+                                <input type="password" name="password" id="password" class="input-text full-width">
+                            </div>
                         </div>
-                    </div>
-                     <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label>Re Password</label>
-                            <input type="password" name="re_password" id="re_password" class="input-text full-width">
+                        <div class="row form-group">
+                            <div class="col-xs-12">
+                                <label>Re Password</label>
+                                <input type="password" name="re_password" id="re_password" class="input-text full-width">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label>Country</label>
-                                                       
-                            <select name="country" class="input-text full-width">
+                        <div class="row form-group">
+                            <div class="col-xs-12">
+                                <label>Country</label>
+
+                                <select name="country" class="input-text full-width">
                                 <% for(var i in getAllcountrylist.data.data) { %>
                                 <option value="<%= getAllcountrylist.data.data[i].name %>"> <%= getAllcountrylist.data.data[i].name %> </option>
                                 <% } %>
                             </select>
-                            
-                            
-                            
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label>City</label>
-                            <input type="text" name="city" class="input-text full-width">
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label>Pincode</label>
-                            <input type="text" name="pincode" class="input-text full-width">
-                        </div>
-                    </div>
-
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <button type="submit" class="btn-large full-width"> Register </button>
-                        </div>
-                    </div>
 
 
+
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-xs-12">
+                                <label>City</label>
+                                <input type="text" name="city" class="input-text full-width">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-xs-12">
+                                <label>Pincode</label>
+                                <input type="text" name="pincode" class="input-text full-width">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-xs-12">
+                                <button type="submit" class="btn-large full-width"> Register </button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="travelo-box col-sm-6 pull-right">
+
+
+                        <img src="/website/images/site/register.jpg" />
+
+                    </div>
+
+                </form>
             </div>
-     <div class="travelo-box col-sm-6 pull-right">
-         
-         
-         <img src="/website/images/site/register.jpg" />
-         
-     </div>
 
-            </form>
+
+
         </div>
-
-
-
-    </div>
-</div>
-</article>
+        </div>
+    </article>
 
 
 
 
-<% include footer %>
+    <% include footer %>
 
 
-<script type="text/javascript" src="/javascripts/md5.min.js"></script>
+        <script type="text/javascript" src="/javascripts/md5.min.js"></script>
 
-<script>
-    tjq(document).ready(function() {
-        tjq("#registerForm").validate({
-            rules: {
-                first_name: {
-                    required: true,
-                    
-                },
-                last_name: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                },
-                password: {
-                    required: true,
-                     minlength: 6
-                },
-                re_password: {
-                    equalTo: "[name='password']",
-                    minlength: 6
-                }
-                ,
-                country: {
-                    required: true,
-                }
-                ,
-                city: {
-                    required: true,
-                }
-                ,
-                pincode: {
-                    required: true,
-                }
+        <script>
+            tjq(document).ready(function () {
+                tjq("#registerForm").validate({
+                    rules: {
+                        first_name: {
+                            required: true,
 
-
-            },
-            submitHandler: function() {
-
-                var first_name = tjq("[name='first_name']").val();
-                var last_name = tjq("[name='last_name']").val();
-                var email = tjq("[name='email']").val();
-                var password = tjq("[name='password']").val();
-                var loginpassword = tjq("[name='loginpassword']").val();
-                var country = tjq("[name='country']").val();
-                var city = tjq("[name='city']").val();
-                var pincode = tjq("[name='pincode']").val();
-                var mobilenumber = tjq("[name='mobilenumber']").val();
-
-                var passwordmd5=md5(email); 
+                        },
+                        last_name: {
+                            required: true,
+                        },
+                        email: {
+                            required: true,
+                        },
+                        password: {
+                            required: true,
+                            minlength: 6
+                        },
+                        re_password: {
+                            equalTo: "[name='password']",
+                            minlength: 6
+                        }
+                        ,
+                        country: {
+                            required: true,
+                        }
+                        ,
+                        city: {
+                            required: true,
+                        }
+                        ,
+                        pincode: {
+                            required: true,
+                        }
 
 
-                var jsonData = {
-                    "first_name": first_name,
-                    "last_name": last_name,
-                    "email": email,
-                    "password": passwordmd5,
-                    "loginpassword": password,
-                    "country": country,
-                    "city": city,
-                    "pincode": pincode,
-                    "mobilenumber": mobilenumber,
-                    "type": 1,
-                };
+                    },
+                    submitHandler: function () {
+
+                        var first_name = tjq("[name='first_name']").val();
+                        var last_name = tjq("[name='last_name']").val();
+                        var email = tjq("[name='email']").val();
+                        var password = tjq("[name='password']").val();
+                        var loginpassword = tjq("[name='loginpassword']").val();
+                        var country = tjq("[name='country']").val();
+                        var city = tjq("[name='city']").val();
+                        var pincode = tjq("[name='pincode']").val();
+                        var mobilenumber = tjq("[name='mobilenumber']").val();
+
+                        var passwordmd5 = md5(email);
+
+
+                        var jsonData = {
+                            "first_name": first_name,
+                            "last_name": last_name,
+                            "email": email,
+                            "password": passwordmd5,
+                            "loginpassword": password,
+                            "country": country,
+                            "city": city,
+                            "pincode": pincode,
+                            "mobilenumber": mobilenumber,
+                            "type": 1,
+                        };
 
 
 
 
-                tjq.ajax
-                        ({
-                            type: "POST",
-                            url: "/register",
-                            dataType: 'json',
-                            async: false,
-                            headers: {
-                                "Authorization": "<%- authorization %>",
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            data: jsonData,
-                            success: function(data) {
-                                tjq("#message").html("");
-                                console.log(data);
-                                if (data.data.code == 200) {
+                        tjq.ajax
+                            ({
+                                type: "POST",
+                                url: "/register",
+                                dataType: 'json',
+                                async: false,
+                                headers: {
+                                    "Authorization": "<%- authorization %>",
+                                    'Content-Type': 'application/x-www-form-urlencoded'
+                                },
+                                data: jsonData,
+                                success: function (data) {
+                                    tjq("#message").html("");
+                                    console.log(data);
+                                    if (data.data.code == 200) {
 
 
-                                    window.location.assign("/users/")
+                                        window.location.assign("/users/")
 
 
-                                } else {
-                                    
-                                    for(var i in data.data.message){
-                                        console.log(data.data.message[i]);
+                                    } else {
+
+                                        for (var i in data.data.message) {
+                                            console.log(data.data.message[i]);
+                                        }
+                                        tjq("#message").text(JSON.stringify(data.data.message[0].error_message));
+                                        tjq("#message").append(JSON.stringify(data.data.message[0].errMsg));
+
                                     }
-                                    tjq("#message").text(JSON.stringify(data.data.message[0].error_message));
-                                    tjq("#message").append(JSON.stringify(data.data.message[0].errMsg));
 
+
+                                    return false;
                                 }
-
-
-                                return false;
-                            }
-                        });
+                            });
 
 
 
 
 
-            }
-        });
-    });
-</script>
+                    }
+                });
+            });
 
-
-
-
+        </script>
