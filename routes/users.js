@@ -203,8 +203,23 @@ router.get('/bouns',start, function (req, res, next) {
 });
 
 router.get('/cryptovalue',start, function (req, res, next) {
-        
-        res.render('users/cryptovalue');
+    
+    
+     var options = {
+        url: "http://apilayer.net/api/live?access_key=700877487c097bcd4f34d1d253e8051c",
+        method: 'GET',
+        json: true
+    };
+    
+      request(options, function (err, apiRes, body) {
+       var jsonData={};
+        jsonData.currencylayer=body; 
+          res.render('users/cryptovalue', jsonData, function (err, doc) {
+            console.log(err, "err");
+            res.send(doc);
+
+        });
+    });
     
 
 });
@@ -223,6 +238,13 @@ router.get('/shop/paymentsuccess',start, function (req, res, next) {
 
 });
 
+
+router.get('/changepass',start, function (req, res, next) {
+       
+        res.render('users/changePass');
+    
+
+});
 
 
 
@@ -298,6 +320,38 @@ sampleFile.mv(filepath+'/public/images/kyc/kyc2_'+userId+'.'+fileName[1], functi
         console.log(body, "body1");
 
         res.redirect('/users/editProfile?ch=1');
+    });
+
+});
+
+
+
+router.post('/changepass', start, function (req, res, next) {
+console.log(req.body,"req.body");
+
+    var jsonData = {"user_id":userId,"loginpwd":req.body.login_pass,"transactionpwd":req.body.new_tran_pass};
+var jsonData={   "_id": userId,   "current_password": req.body.login_pass,   "new_password": req.body.new_pass,   "retype_password": req.body.new_pass,   "type": "1" };
+
+    console.log(jsonData);
+
+    var jsonData = JSON.stringify(jsonData);
+    var options = {
+        url: apiUrl + 'changePassword',
+        method: 'POST',
+        headers: {
+            'Authorization': authorization,
+            'Content-Type': 'application/x-www-form-urlencoded'
+
+        },
+        form: {jsonData: jsonData},
+        json: true,
+    };
+
+    request(options, function (err, apiRes, body) {
+console.log(body,"body");
+
+    res.json(body);
+ 
     });
 
 });

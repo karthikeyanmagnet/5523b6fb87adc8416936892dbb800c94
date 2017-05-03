@@ -37,7 +37,7 @@
                         </ol> -->
                         <hr>
                         <ol class="breadcrumb user-tab">
-                            <li class="active tabheader-font" class="tabheader-font">
+                            <li class=" tabheader-font" class="tabheader-font">
                                 <a href="/users/myaccount">
                                 PURCHASE HISTORY
                                 </a>
@@ -48,7 +48,7 @@
                                TRANSACTION PASSWORD
                                 </a>
                             </li>
-                            <li class=" tabheader-font">
+                            <li class="active tabheader-font">
                                 <a href="/users/myaccount/receviedcoins">
                                RECEIVED COINS
                                 </a>
@@ -68,7 +68,7 @@
                     <div class="col-lg-12">
                         <br>
                         <div class="panel col-lg-12"> 
-                            <h4> Purchase History </h4>    
+                            <h4> Recivied Coin History </h4>    
                              <div class="row"> 
                                 <form id="filter">
                                 <div class="col-lg-2">
@@ -100,11 +100,12 @@
                                     <th>Description</th>
                                     <th> Coin </th>
                                     <th> Status </th>
+                                      <th> From </th>
                                     
                                 </tr>
                             </thead>
                             <tbody id="replaceData">
-                               <% include page %>         
+                               <% include pageReceviedCoins %>         
                                
                             </tbody>
                         </table>
@@ -184,7 +185,7 @@
                     "start":start,
                     "limit":limit,
                     "transaction_status":2,
-                    "transaction_type":0
+                    "transaction_type":1
                 };
 
 
@@ -193,7 +194,7 @@
                 $.ajax
                         ({
                             type: "POST",
-                            url: "/users/myaccount/filter",
+                            url: "/users/myaccount/filterReceviedCoins",
                             dataType: 'html',
                             async: false,
                             headers: {
@@ -248,14 +249,14 @@
         
         
         
-          $('.inviewCont').on('inview', function(event, isInView) {
+          $('.inviewCont').on('inview1', function(event, isInView) {
              
          console.log(start,10,0,0,"prepend");
           var from_date=$("[name='from_date']").val();
           var to_date=$("[name='to_date']").val();
           if(from_date=="") { from_date=0 };
           if(to_date=="") { to_date=0 };
-          filter(start,10,0,0,"prepend")
+          filter(0,100,0,0,"prepend")
          
          
      });

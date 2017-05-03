@@ -99,6 +99,57 @@ router.get('/myaccount', start, function (req, res, next) {
 });
 
 
+router.get('/myaccount/receviedcoins', start, function (req, res, next) {
+
+
+    var jsonDataP = {};
+    jsonDataP.authorization = authorization;
+    jsonDataP.meta = meta;
+    jsonDataP.userId = userId;
+    jsonDataP.path = path;
+
+    var jsonData = {"transaction_type": 1, "transaction_status": 2
+        , "user_id": "0" , "to_user_id": userId, "start": "0", "limit": "100", "start_date": "0", "end_date":"0"};
+
+
+
+
+    var jsonData = JSON.stringify(jsonData);
+    console.log(jsonData);
+    var options = {
+        url: apiUrl + 'transactionByUserId',
+        method: 'POST',
+        headers: {
+            'Authorization': authorization,
+            'Content-Type': 'application/x-www-form-urlencoded'
+
+        },
+        form: {jsonData: jsonData},
+        json: true,
+    };
+
+    request(options, function (err, apiRes, body) {
+        console.log(body.data, "body");
+
+      
+
+        jsonDataP.data=body.data;
+        res.render('users/myaccount/receviedcoins', jsonDataP, function (err, doc) {
+            console.log(err, "err");
+            res.send(doc);
+
+        });
+
+
+    });
+
+
+
+
+
+
+});
+
 
 router.post('/myaccount/filter', start, function (req, res, next) {
 
@@ -122,10 +173,54 @@ router.post('/myaccount/filter', start, function (req, res, next) {
     };
 console.log(jsonData);
     request(options, function (err, apiRes, body) {
-        console.log(body.data.message, "body");
+        console.log(body.data, "body");
         jsonDataP={};
         jsonDataP.data=body.data;
         res.render('users/myaccount/page', jsonDataP, function (err, doc) {
+            console.log(err, "err");
+            res.send(doc);
+
+        });
+
+
+
+
+
+
+
+
+    });
+
+});
+
+
+
+router.post('/myaccount/filterReceviedCoins', start, function (req, res, next) {
+
+    var jsonData = {"transaction_type":req.body.transaction_type, "transaction_status": req.body.transaction_status
+        , "user_id": "0","to_user_id": userId, "start": req.body.start, "limit": req.body.limit, "start_date": req.body.start_date, "end_date": req.body.end_date};
+
+
+
+
+    var jsonData = JSON.stringify(jsonData);
+    var options = {
+        url: apiUrl + 'transactionByUserId',
+        method: 'POST',
+        headers: {
+            'Authorization': authorization,
+            'Content-Type': 'application/x-www-form-urlencoded'
+
+        },
+        form: {jsonData: jsonData},
+        json: true,
+    };
+console.log(jsonData);
+    request(options, function (err, apiRes, body) {
+        console.log(body, "body");
+        jsonDataP={};
+        jsonDataP.data=body.data;
+        res.render('users/myaccount/pageReceviedCoins', jsonDataP, function (err, doc) {
             console.log(err, "err");
             res.send(doc);
 
