@@ -31,6 +31,34 @@ router.get('/', start, function (req, res, next) {
 
 });
 
+router.get('/changepassword', function (req, res, next) {
+    res.render('admin/changepassword');
+});
+
+
+router.post('/changepassword', function (req, res, next) {
+    
+    var jsonData = {
+        "_id":"590079ba62623e16f4617fcb",
+        "current_password": req.body.current_password,
+        "new_password": req.body.new_password,
+        "retype_password": req.body.retype_password
+    } 
+    var jsonData = JSON.stringify(jsonData);  
+    var options = {
+        url: apiUrl + 'changePasswordAdmin',
+        method: 'POST',
+        headers: {
+            'Authorization': authorization,
+        },
+        form: {jsonData: jsonData},
+        json: true
+    };
+ 
+    request(options,function(err, apiRes, body){
+       res.json(body.data);
+    });
+});
 
 router.get('/dashboard', start, function (req, res, next) {
 
