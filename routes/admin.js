@@ -18,18 +18,36 @@ function start(req, res, next) {
 
 
 router.get('/', start, function (req, res, next) {
-
-
-
         res.render('admin/login', "", function (err, doc) {
             res.send(doc);
             console.log(err, "--err--");
-
-
-        });
-    
-
+        });  
 });
+
+
+router.post('/adminlogin', function (req, res, next) {
+    
+    var jsonData = {
+        "email": req.body.email,
+        "password": req.body.password
+    } 
+    var jsonData = JSON.stringify(jsonData);  
+    var options = {
+        url: apiUrl + 'adminLogin',
+        method: 'POST',
+        headers: {
+            'Authorization': authorization,
+        },
+        form: {jsonData: jsonData},
+        json: true
+    };
+ 
+    request(options,function(err, apiRes, body){
+        console.log(body.data);
+       res.json(body.data);
+    });
+});
+
 
 router.get('/changepassword', function (req, res, next) {
     res.render('admin/changepassword');
