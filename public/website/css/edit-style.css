@@ -280,6 +280,14 @@ a#back-to-top {
 .mainSlider .slick-next{position: absolute;font-size: 0px;background: transparent;z-index: 5;top: 50%; right:30px;outline: none;}
 .mainSlider .slick-next:before{content: "\f0da";font-family: FontAwesome;color: #444141;z-index: 55;font-size: 30px;background: #ffffff;padding: 7px 15px 7px 19px;border-radius: 50%;border: 1px solid #3e3b3b;}
 
+form.login-form .form-group{position:relative;    margin-bottom: 25px;}
+form.login-form .form-group label.error {
+    position: absolute;
+    text-transform: capitalize;
+    color: #ff3f3f;
+    right: 0;
+    top: -20px;
+}
 
 @media screen and (max-width:990px){
     .singleMenuTab div{border-right: none;}
