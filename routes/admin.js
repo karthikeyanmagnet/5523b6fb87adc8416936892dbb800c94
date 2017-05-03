@@ -43,7 +43,7 @@ router.post('/adminlogin', function (req, res, next) {
     };
  
     request(options,function(err, apiRes, body){
-        console.log(body.data);
+      
        res.json(body.data);
     });
 });
@@ -74,6 +74,7 @@ router.post('/changepassword', function (req, res, next) {
     };
  
     request(options,function(err, apiRes, body){
+          console.log(body.data);
        res.json(body.data);
     });
 });
