@@ -1,6 +1,11 @@
 
 <% include ../header %>    
 
+<style>   
+
+.shop-tabheader-font{font-size:18px !important}
+</style>
+
 <body>
 
     <div id="wrapper">
@@ -17,32 +22,25 @@
                 
                  <div class="row top-heading">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Package  <small> Statistics Overview </small>
-                        </h1>
-
-
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Package
-                            </li>
-                        </ol>
+                        <h3 class="page-header">
+                            PRODUCTS  <small> Statistics Overview </small>
+                        </h3>                      
  <hr>
                         <ol class="breadcrumb user-tab">
-                            <li <% if(type==0) { %>  class="active" <% } %>  >
-                                <a href="/admin/products?type=0">
-                               Ecommerce
+                            <li <% if(type==1) { %>  class="active shop-tabheader-font" <% } %> class="shop-tabheader-font" >
+                                <a href="/admin/products?type=1">
+                                PACKAGE
                                 </a>
                             </li>
                             
-                            <li <% if(type==1) { %>  class="active" <% } %>  >
-                                <a href="/admin/products?type=1">
-                               Package
+                            <li <% if(type==2) { %>  class="active shop-tabheader-font" <% } %> class="shop-tabheader-font"  >
+                                <a href="/admin/products?type=2">
+                              ECOMMERCE 
                                 </a>
                             </li>
-                            <li <% if(type==2) { %>  class="active" <% } %>  >
-                                <a href="/admin/products?type=2">
-                               Token
+                            <li <% if(type==3) { %>  class="active shop-tabheader-font" <% } %> class="shop-tabheader-font" >
+                                <a href="/admin/products?type=3">
+                               TOKEN
                                 </a>
                             </li>
                         </ol>

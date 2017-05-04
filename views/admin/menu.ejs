@@ -11,11 +11,7 @@
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-        <li class="dropdown">
-            <a href="/users/cart" ><i class="glyphicon glyphicon-envelope fa-2x"></i> </a>
-
-        </li>
-      
+            
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle fa-2x" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <b class="caret"></b></a>
@@ -60,17 +56,25 @@
                         <a href="/admin/products"><i class="fa fa-fw fa-bar-chart-o"></i> Products</a>
                     </li>-->
                     <li <% if(path=="/admin/products") { %> class="active" <% } %>  >
-                        <a href="/admin/products"><i class="glyphicon glyphicon-shopping-cart"></i> products</a>
+                        <a href="/admin/products"><i class="glyphicon glyphicon-shopping-cart"></i> Products</a>
                     </li>
                     
                     <li <% if(path=="/admin/coinUpdate") { %> class="active" <% } %>  >
                         <a href="/admin/coinUpdate"><i class="glyphicon glyphicon-circle-arrow-down"></i> Coin Value Update </a>
                     </li>
+                     <li <% if(path=="/admin/transactionhistory") { %> class="active" <% } %>  >
+                         <a href="/admin/transactionhistory"><i class="glyphicon glyphicon-globe"></i> Transaction</a>
+                    </li>  
+                     <li <% if(path=="/admin/withdrawnstatus") { %> class="active" <% } %>  >
+                         <a href="/admin/withdrawnstatus"><i class="glyphicon glyphicon-tag"></i> Withdrawn Status</a>
+                    </li>  
+                     <li <% if(path=="/admin/support") { %> class="active" <% } %>  >
+                         <a href="/admin/support"><i class="glyphicon glyphicon-leaf"></i> Support</a>
+                    </li>  
+                     <li <% if(path=="/admin/exchangelocation") { %> class="active" <% } %>  >
+                         <a href="/admin/exchangelocation"><i class="glyphicon glyphicon-globe"></i> Exchange Location</a>
+                    </li>  
                     
-                    
-                    
-               
-
 
         </ul>
     </div>
