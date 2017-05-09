@@ -4,7 +4,8 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 
-<style>
+<style>    
+
 .tabheader-font{font-size:18px !important}
 </style>
 
@@ -25,30 +26,33 @@
                 <div class="row top-heading">
                     <div class="col-lg-12">
                         <h3 class="page-header">
-                           TRANSACTION  <small>  </small>
-                        </h1>
+                            MY ACCOUNT  <small>  </small>
+                        </h3>
 
 
-              <!--          <ol class="breadcrumb">
+                     <!--   <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> History
+                                <i class="fa fa-dashboard"></i> My Account
                             </li>
                         </ol> -->
                         <hr>
                         <ol class="breadcrumb user-tab">
-                            <li class="active tabheader-font">
-                                <a href="/users/tranhistory">
-                               TRANSFER HISTORY
+                            <li class=" tabheader-font" class="tabheader-font">
+                                <a href="/users/myaccount">
+                                PURCHASE HISTORY
                                 </a>
                             </li>
                             
                              <li class="tabheader-font">
-                                <a href="/users/sellhistory">
-                               SELL HISTORY
+                                <a href="/users/coinsafe">
+                               TRANSACTION PASSWORD
                                 </a>
                             </li>
-                            
-                            
+                            <li class="active tabheader-font">
+                                <a href="/users/myaccount/receviedcoins">
+                               RECEIVED COINS
+                                </a>
+                            </li>
                         </ol>
 
 
@@ -64,8 +68,8 @@
                     <div class="col-lg-12">
                         <br>
                         <div class="panel col-lg-12"> 
-                            <h3> Transfer History</h3>    
-                            <div class="row"> 
+                            <h4> Recivied Coin History </h4>    
+                             <div class="row"> 
                                 <form id="filter">
                                 <div class="col-lg-2">
                                     <input type="" name="from_date" class="form-control" id="from_date"  placeholder="From Date" />
@@ -90,21 +94,20 @@
                     <div class="col-lg-12">
                     <div class="col-lg-9">
                         <table class="table table-bordered table-hover table-striped panel">
-                            <thead >
+                            <thead>
                                 <tr>
                                     <th>Date</th>
                                     <th>Description</th>
-                                    <th> No Of Coins </th>
+                                    <th> Coin </th>
                                     <th> Status </th>
+                                      <th> From </th>
                                     
-                                    <th> To User </th>
                                 </tr>
                             </thead>
                             <tbody id="replaceData">
-                               <% include page %>         
+                               <% include pageReceviedCoins %>         
                                
                             </tbody>
-                           
                         </table>
                          <div class="col-lg-12 inviewCont">
                        
@@ -120,10 +123,12 @@
                             </div>
                             
                             <div class="col-lg-12 text-right">
-                                
+                                <span> Balance <span> <br> 
+                                        <b> <%= balance %> Protos</b>
+                                <hr>
                             </div>
-                            <hr>
-<!--                              <div class="col-lg-12 text-right">
+ <!--                           <hr>
+                              <div class="col-lg-12 text-right">
                                 <span> Current Weekly Pay In <span> <br> 
                                         <b style="color: #0a8461"> 6.60 EUR </b>
                                 <hr>
@@ -133,8 +138,8 @@
                                 <span> Current Weekly Pay Out <span> <br> 
                                         <b style="color: #ef4036"> 6.60 EUR </b>
                                 
-                            </div>-->
-                            <hr>
+                            </div>
+                            <hr> -->
                             
                         </div>
                         
@@ -156,9 +161,9 @@
     </div>
     <!-- /#wrapper -->
 
+</body>
     <% include ../footer %> 
 
-</body>
 
 </html>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -179,7 +184,7 @@
                     "end_date":to_date,
                     "start":start,
                     "limit":limit,
-                    "transaction_status":4,
+                    "transaction_status":2,
                     "transaction_type":1
                 };
 
@@ -189,7 +194,7 @@
                 $.ajax
                         ({
                             type: "POST",
-                            url: "/users/tranhistory/filter",
+                            url: "/users/myaccount/filterReceviedCoins",
                             dataType: 'html',
                             async: false,
                             headers: {
@@ -244,14 +249,14 @@
         
         
         
-          $('.inviewCont').on('inview', function(event, isInView) {
+          $('.inviewCont').on('inview1', function(event, isInView) {
              
          console.log(start,10,0,0,"prepend");
           var from_date=$("[name='from_date']").val();
           var to_date=$("[name='to_date']").val();
           if(from_date=="") { from_date=0 };
           if(to_date=="") { to_date=0 };
-          filter(start,10,0,0,"prepend")
+          filter(0,100,0,0,"prepend")
          
          
      });

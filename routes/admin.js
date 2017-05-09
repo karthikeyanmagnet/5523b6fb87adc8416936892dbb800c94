@@ -1,4 +1,5 @@
 function start(req, res, next) {
+    
     path = "/admin" + req.path;
     ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     agent = useragent.parse(req.headers['user-agent']);
@@ -81,7 +82,7 @@ router.post('/changepassword', function (req, res, next) {
 
 router.get('/dashboard', start, function (req, res, next) {
 
-
+console.log("call123",authorization);
 
     var options = {
         url: apiUrl + 'get_common_count/',

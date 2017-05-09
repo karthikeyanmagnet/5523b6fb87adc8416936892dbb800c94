@@ -1,0 +1,38 @@
+
+<%= JSON.stringify(data.data[i]) %>
+                        <% 
+                        
+                        var flag=0;
+                        for(var i in data.data)  { flag=1 %>
+
+                                <tr>
+                                    <td> <%
+                                        
+                                        var timeStr = data.data[i].meta.created_at;
+                                        var date = new Date(timeStr);
+                                        var day = date.getDate();
+                                        var year = date.getFullYear();
+                                        var month = date.getMonth()+1;
+                                        var dateStr = month+"/"+day+"/"+year;
+                                        %> 
+                                    <%= dateStr  %>
+                                    </td>
+                                    <td> -- </td>
+                                    <td> <%= data.data[i].no_of_cointransferred  %>  </td>
+                                    <td> <% if(data.data[i].transaction_status==2) {  %> 
+                                        Success
+                                        
+                                        <% } %>   </td>
+                                    <td> 
+                                        <% if(data.data[i].to_user_detail.length){ %>
+                                        <%= data.data[i].to_user_detail[0].first_name+" "+data.data[i].to_user_detail[0].last_name  %>
+                                      <% } %>
+                                    </td>
+                                    
+                                </tr>
+                                
+                           <% } if(flag==0) { %>
+                           <td> No Data Found  </td>
+                           <% } %>
+
+                          

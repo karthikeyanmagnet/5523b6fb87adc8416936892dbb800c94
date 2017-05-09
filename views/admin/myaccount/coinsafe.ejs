@@ -1,0 +1,229 @@
+
+<% include ../header %>    
+
+
+<style>    
+
+.tabheader-font{font-size:18px !important}
+</style>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <% include ../menu %>            
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+
+
+                <div class="row top-heading">
+                    <div class="col-lg-12">
+                        <h3 class="page-header">
+                            MY ACCOUNT  <small>  </small>
+                        </h3>
+
+
+                    <!--    <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> My Account
+                            </li>
+                        </ol>  -->
+                        <hr>
+                        <ol class="breadcrumb user-tab">
+                            <li  class="tabheader-font"  >
+                                <a href="/users/myaccount">
+                                    PURCHASE HISTORY
+                                </a>
+                            </li>
+
+                            <li class="active tabheader-font" class="breadcrumb user-tab">
+                                <a href="/users/coinsafe">TRANSACTION PASSWORD</a>
+                            </li>
+                            <li class=" tabheader-font">
+                                <a href="/users/myaccount/receviedcoins">
+                               RECEIVED COINS
+                                </a>
+                            </li>
+                        </ol>
+
+
+
+                    </div>
+
+
+
+                </div>
+                
+                
+                <div class="col-lg-12 " id="message">
+
+                    </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <br>
+                        <form id="cform" method="post">
+                        <div class="panel col-lg-12"> 
+                            <h4> Change Your Transation Password </h4>    
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    Enter Your Login Password
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <input type="password" name="login_pass" class="form-control" />
+                                </div>
+                            </div>
+                            <br>
+                             <div class="row">
+                                <div class="col-lg-4">
+                                    Enter Your New Transaction Password
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <input type="password" name="new_tran_pass" class="form-control" />
+                                </div>
+                            </div>
+                            <br>
+                             <div class="row">
+                                <div class="col-lg-4">
+                                   Re Enter Your New Transaction Password
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <input type="password" name="re_new_tran_pass" class="form-control" />
+                                </div>
+                            </div>
+<br>
+                             <div class="row">
+                                <div class="col-lg-2">
+                                    <button type="submit" class="btn btn-info"> Change  </button>
+                                </div>
+                            </div>
+                            <br>
+                            
+
+
+                        </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <% include ../footer %> 
+
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+   
+        
+         
+        
+
+        
+        
+        $("#cform").validate({
+            rules: {
+                login_pass: {
+                    required: true,
+                },
+                new_tran_pass: {
+                    required: true,
+                    minlength: 6
+                },
+                 re_new_tran_pass: {
+                    equalTo: "[name='new_tran_pass']",
+                    minlength: 6
+                }
+
+            },
+            submitHandler: function () {
+  
+            var login_pass=$("[name='login_pass']").val();
+            var new_tran_pass=$("[name='new_tran_pass']").val();
+            
+              
+               var jsonData = {
+                    "login_pass":login_pass,
+                    "new_tran_pass":new_tran_pass,
+                };
+         
+
+                $.ajax
+                        ({
+                            type: "POST",
+                            url: "/users/coinsafe",
+                            dataType: 'json',
+                            async: false,
+                            headers: {
+                                 'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            data: jsonData,
+                            success: function (data) {
+
+                                console.log(data);
+                               
+  if (data.data.code == 200) {
+                                    $("[name='login_pass']").val("");
+                                    $("[name='new_tran_pass']").val("");
+                                    $("#message").html('<br><div class="alert alert-success">\n\
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>\n\
+<i class="fa fa-info-circle"></i> \n\
+ <strong id="message"> ' +JSON.stringify(data.data.message)  + ' </strong></div>');
+
+
+
+
+                                } else {
+                                    $("#message").html('<br><div class="alert alert-danger">\n\
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>\n\
+<i class="fa fa-info-circle"></i> \n\
+ <strong id="message"> ' +JSON.stringify(data.data.message) + ' </strong></div>');
+
+                                }
+
+
+                                return false;
+                            }
+                        });
+
+
+
+
+            }
+        });
+        
+        
+       
+        
+        
+        
+    });
+</script>

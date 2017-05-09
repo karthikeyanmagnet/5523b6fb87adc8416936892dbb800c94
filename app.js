@@ -6,8 +6,8 @@ useragent = require('useragent');
 session = require('express-session')
 
 apiUrl = "http://coinapi.hapy.mobi/";
-// userId = "58e3730ab695c06703688e85";
-authorization = "Bearer 8ljkCFUd0wRQTjQYlF6BKKce7OUnakwCyBF5XUgf11fqkfXUZZ";
+ userId = "58d7dbb4255f4d3c5262a6fb";
+ authorization = "Bearer 8ljkCFUd0wRQTjQYlF6BKKce7OUnakwCyBF5XUgf11fqkfXUZZ";
 
 
 
@@ -76,6 +76,8 @@ app.use('/users', transfer);
 
 app.use('/admin', admin);
 app.use('/admin', package);
+app.use('/admin', require('./routes/admin/tranhistory'));
+
 
 
 

@@ -1,0 +1,35 @@
+
+ 
+                        <% for(var i in data.data)  { %>
+
+                                <tr>
+                                    <td> <%
+                                        
+                                        var timeStr = data.data[i].meta.created_at;
+                                        var date = new Date(timeStr);
+                                        var day = date.getDate();
+                                        var year = date.getFullYear();
+                                        var month = date.getMonth()+1;
+                                        var dateStr = month+"/"+day+"/"+year;
+                                        %> 
+                                    <%= dateStr  %>
+                                    </td>
+                                    <td> -- </td>
+                                    <td> <%= data.data[i].no_of_cointransferred  %>  </td>
+                                    <td> 
+                                        <% if(data.data[i].transaction_status==1) {  %> 
+                                        Process
+                                        
+                                        <% } %>
+                                        
+                                        <% if(data.data[i].transaction_status==2) {  %> 
+                                        Success
+                                        
+                                        <% } %>   </td>
+                                     <td> <%- data.data[i].user_detail[0].first_name %> </td>
+                                    
+                                </tr>
+                                
+                           <% } %>
+
+                          

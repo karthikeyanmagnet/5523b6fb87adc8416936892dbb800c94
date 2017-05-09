@@ -26,24 +26,20 @@
                     <div class="col-lg-12">
                         <h3 class="page-header">
                            TRANSACTION  <small>  </small>
-                        </h1>
+                        </h3>
 
 
-              <!--          <ol class="breadcrumb">
+                    <!--    <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> History
                             </li>
                         </ol> -->
                         <hr>
                         <ol class="breadcrumb user-tab">
-                            <li class="active tabheader-font">
-                                <a href="/users/tranhistory">
-                               TRANSFER HISTORY
-                                </a>
-                            </li>
+                         
                             
-                             <li class="tabheader-font">
-                                <a href="/users/sellhistory">
+                             <li class=" tabheader-font" class="tabheader-font">
+                                <a href="/admin/sellhistorya">
                                SELL HISTORY
                                 </a>
                             </li>
@@ -64,7 +60,7 @@
                     <div class="col-lg-12">
                         <br>
                         <div class="panel col-lg-12"> 
-                            <h3> Transfer History</h3>    
+                            <h3> Sell History</h3>    
                             <div class="row"> 
                                 <form id="filter">
                                 <div class="col-lg-2">
@@ -111,34 +107,7 @@
                     </div>
 
                     </div>
-                    <div class="col-lg-3">
-                        <div class="panel row">
-                            <div class="col-lg-12">
-                                <h3> Balance </h3>
-                                
-                                <hr>
-                            </div>
-                            
-                            <div class="col-lg-12 text-right">
-                                
-                            </div>
-                            <hr>
-<!--                              <div class="col-lg-12 text-right">
-                                <span> Current Weekly Pay In <span> <br> 
-                                        <b style="color: #0a8461"> 6.60 EUR </b>
-                                <hr>
-                            </div>
-                            <hr>
-                              <div class="col-lg-12 text-right">
-                                <span> Current Weekly Pay Out <span> <br> 
-                                        <b style="color: #ef4036"> 6.60 EUR </b>
-                                
-                            </div>-->
-                            <hr>
-                            
-                        </div>
-                        
-                    </div>
+                   
                 </div>
                 <!-- /.row -->
 
@@ -180,7 +149,7 @@
                     "start":start,
                     "limit":limit,
                     "transaction_status":4,
-                    "transaction_type":1
+                    "transaction_type":2
                 };
 
 
@@ -244,7 +213,7 @@
         
         
         
-          $('.inviewCont').on('inview', function(event, isInView) {
+          $('.inviewCont').on('inview1', function(event, isInView) {
              
          console.log(start,10,0,0,"prepend");
           var from_date=$("[name='from_date']").val();
