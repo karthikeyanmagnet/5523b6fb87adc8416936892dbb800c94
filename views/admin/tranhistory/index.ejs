@@ -3,6 +3,7 @@
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="/vender/dynable/jquery.dynatable.css">
 
 <style>
 .tabheader-font{font-size:18px !important}
@@ -69,6 +70,22 @@
                                 <div class="col-lg-2">
                                     <input type=""  class="form-control"  name="to_date" placeholder="To Date" id="to_date"  /> 
                                 </div>
+                                    <div class="col-lg-2">
+                                        <select id="status" class="form-control">
+                                            <option value="0">Failure</option>
+                                            <option value="1">Pending</option>
+                                            <option value="2" selected="selected">Success</option>
+                                            
+                                        </select>
+                                    </div>
+                                        <div class="col-lg-2">
+                                        <select id="transaction_type" class="form-control">
+                                            <option value="0">package purchase</option>
+                                            <option value="1">peer to peer</option>
+                                            <option value="2" selected="selected">Sell</option>
+                                            <option value="3" >Ecommerce Purchase</option>
+                                        </select>
+                                    </div>
                                 <div class="col-lg-2">
                                     <button class="btn btn-info" type="submit">  Filter   </button>   
                                    
@@ -84,7 +101,7 @@
                 <div class="row">
                     <br>
                     <div class="col-lg-12">
-                    <div class="col-lg-9">
+                    <div class="col-lg-12">
                         <table class="table table-bordered table-hover table-striped panel">
                             <thead >
                                 <tr>
@@ -97,46 +114,27 @@
                                 </tr>
                             </thead>
                             <tbody id="replaceData">
-                               <% include page %>         
+                                      <% include page %> 
                                
-                            </tbody>
+                      
+                                       </tbody>
                            
                         </table>
+                                                    <ul class="pagination text-center">
+                           <% 
+                                var pageCount=10;
+                           for(i=1;i<=pageCount;i++)  {
+                           %>                       
+                           <li><a href="#" data-page="<%- i-1 %>" class="page" ><%- i %></a></li>
+  <% } %>
+  
+</ul>
                          <div class="col-lg-12 inviewCont">
                        
                     </div>
 
                     </div>
-                    <div class="col-lg-3">
-                        <div class="panel row">
-                            <div class="col-lg-12">
-                                <h3> Balance </h3>
-                                
-                                <hr>
-                            </div>
-                            
-                            <div class="col-lg-12 text-right">
-                                <span> Balance <span> <br> 
-                                       
-                                <hr>
-                            </div>
-                            <hr>
-<!--                              <div class="col-lg-12 text-right">
-                                <span> Current Weekly Pay In <span> <br> 
-                                        <b style="color: #0a8461"> 6.60 EUR </b>
-                                <hr>
-                            </div>
-                            <hr>
-                              <div class="col-lg-12 text-right">
-                                <span> Current Weekly Pay Out <span> <br> 
-                                        <b style="color: #ef4036"> 6.60 EUR </b>
-                                
-                            </div>-->
-                            <hr>
-                            
-                        </div>
-                        
-                    </div>
+                    
                 </div>
                 <!-- /.row -->
 
@@ -161,8 +159,15 @@
 </html>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="/javascripts/jquery.inview.min.js" > </script>
+<script src="/vender/dynable/jquery.dynatable.js" > </script>
 <script>
     $(document).ready(function () {
+        
+        
+   
+        
+        
+        
         $("#from_date").datepicker();
         $("#to_date").datepicker();
         
@@ -170,15 +175,18 @@
         var start=10;
         
         
-        function filter(start,limit,from_date,to_date,method){
-        
+        function filter(start,limit,from_date,to_date){
+         var status=$("#status").val();
+         var transaction_type=$("#transaction_type").val();
+        if(from_date=="") { from_date=0; }
+        if(to_date=="") { to_date=0; }
           var jsonData = {
                     "start_date":from_date,
                     "end_date":to_date,
                     "start":start,
                     "limit":limit,
-                    "transaction_status":4,
-                    "transaction_type":1
+                    "transaction_status":status,
+                    "transaction_type":transaction_type
                 };
 
 
@@ -187,7 +195,7 @@
                 $.ajax
                         ({
                             type: "POST",
-                            url: "/users/tranhistory/filter",
+                            url: "/admin/tranhistorya/filter",
                             dataType: 'html',
                             async: false,
                             headers: {
@@ -197,16 +205,13 @@
                             data: jsonData,
                             success: function (data) {
 
-                            if(method=="replace"){
+                         
                                $("#replaceData").html(data); 
-                               start=2;
-                           }
+                         
+                         
                            
-                         if(method=="prepend"){
-                               $("#replaceData").prepend(data); 
-                               start=2+start;
-                           }
-
+                         
+ 
 
                                 return false;
                             }
@@ -217,22 +222,14 @@
         
         
         $("#filter").validate({
-            rules: {
-                from_date: {
-                    required: true,
-                },
-                to_date: {
-                    required: true,
-                }
-
-            },
+            
             submitHandler: function () {
  
             var from_date=$("[name='from_date']").val();
             var to_date=$("[name='to_date']").val();
-            
+           
               
-                filter("0",10,from_date,to_date,"replace")
+                filter(0,10,from_date,to_date)
 
 
 
@@ -250,6 +247,18 @@
           if(from_date=="") { from_date=0 };
           if(to_date=="") { to_date=0 };
           filter(start,10,0,0,"prepend")
+         
+         
+     });
+     
+     
+        $('body').on('click','.page', function() {
+             var page=$(this).attr("data-page");
+             page=page*10;
+              var from_date=$("[name='from_date']").val();
+            var to_date=$("[name='to_date']").val();
+         
+         filter(page,10,from_date,to_date)
          
          
      });
